@@ -43,7 +43,7 @@ class MapVis {
         // convert topojson into geojson
         vis.world = topojson.feature(vis.geoData, vis.geoData.objects.countries).features
 
-        console.log(vis.geoData)
+        console.log('vis.world', vis.world)
 
         // draw countries
         vis.countries = vis.svg.selectAll(".country")
@@ -55,7 +55,9 @@ class MapVis {
             .style("fill", "grey")
             .style("stroke-width", "1")
 
-
+        // color scale
+        vis.colorScale = d3.scaleLinear()
+            .range(["#FFF", "#7f0000"]);
 
 
         vis.wrangleData()
@@ -64,11 +66,64 @@ class MapVis {
     wrangleData() {
         let vis = this;
 
+        // filter by time range
+
+        // get whether import/export
+        // get metric selector
+
+        // group rows by either import or export country
+
+        // let tradeDataByCountry = Array.from(d3.group(vis.wineData, d =>d['export_country']), ([key, value]) => ({key, value}))
+
+        let tradeDataByCountry = Array.from(d3.rollup(vis.wineData, v=> Object.fromEntries(["value_thousand_USD", "quantity_metric_tons"].map(col => [col, d3.sum(v, d => +d[col])])), d =>d['export_country']), ([key, value]) => ({key, value}))
+
+        console.log(tradeDataByCountry)
+
+        vis.countryInfo = []
+
+        tradeDataByCountry.forEach(country => {
+
+            // country name
+            let countryName =  country.key //nameConverter.getFullName(country.key)
+
+            vis.countryInfo.push(
+                {
+                    country: countryName,
+                    valueTrade: country.value['value_thousand_USD'],
+                    quantityTrade: country.value['quantity_metric_tons']
+                }
+            )
+
+        })
+
+        console.log('final data structure for myMapVis', vis.countryInfo)
+
+
+
         vis.updateVis()
     }
 
     updateVis() {
         let vis = this;
+
+        // get object from countryInfo
+        let getObject = function(d) {
+            let n = vis.countryInfo.find(x=> x.country === d.properties.name)
+            if (typeof n !== 'undefined') {
+                return n;
+            } else {
+                return false;
+            }
+        }
+
+        vis.colorScale.domain([0, d3.max(vis.countryInfo, d=>d['valueTrade'])])
+
+        vis.countries
+            .style("fill", function(d) {
+                if (getObject(d) !== false) {
+                    return vis.colorScale(getObject(d)['valueTrade'])
+                }
+            })
 
 
 

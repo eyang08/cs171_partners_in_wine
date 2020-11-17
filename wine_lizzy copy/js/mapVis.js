@@ -33,7 +33,7 @@ class MapVis {
 
         // create projection
         vis.projection =  d3.geoNaturalEarth1()
-            .translate([vis.width / 2, vis.height / 2 + 50])
+            .translate([vis.width / 2, vis.height / 2 + 30])
             .scale(200)
 
         // geo generator
@@ -42,6 +42,12 @@ class MapVis {
 
         // convert topojson into geojson
         vis.world = topojson.feature(vis.geoData, vis.geoData.objects.countries).features
+
+        // get rid of antarctica
+        let antarcIdx = vis.world.findIndex((item, i) => item.properties.name === "Antarctica")
+        console.log(antarcIdx)
+
+        vis.world.splice(antarcIdx, 1)
 
         console.log('vis.world', vis.world)
 
@@ -57,7 +63,7 @@ class MapVis {
 
         // color scale
         vis.colorScale = d3.scaleLinear()
-            .range(["#FFEFEA", "#7f0000"]);
+         //   .range(["#FFEFEA", "#7f0000"]);
 
 
         vis.wrangleData()
@@ -75,7 +81,7 @@ class MapVis {
 
         // let tradeDataByCountry = Array.from(d3.group(vis.wineData, d =>d['export_country']), ([key, value]) => ({key, value}))
 
-        let trade_flow = 'import_country';
+      //  let trade_flow = 'import_country';
         let tradeDataByCountry = Array.from(d3.rollup(vis.wineData, v=> Object.fromEntries(["value_thousand_USD", "quantity_metric_tons"].map(col => [col, d3.sum(v, d => +d[col])])), d =>d[trade_flow]), ([key, value]) => ({key, value}))
 
         console.log('tradedatabycountry', tradeDataByCountry)
@@ -89,20 +95,27 @@ class MapVis {
             let mapName = country.properties.name
 
             let tradeRow = tradeDataByCountry.find(x=>x.key === mapName)
+         //   console.log('traderow', tradeRow)
             if (typeof tradeRow == 'undefined') {
 
                 let tradeName = nameConverter.getTradeName(mapName)
+             //   console.log('tradename', tradeName)
 
                 if (tradeName !== false) {
 
                     let mapTradeRow = tradeDataByCountry.find(x=>x.key === tradeName)
-                    vis.countryInfo.push(
-                        {
-                            country: mapName,
-                            valueTrade: mapTradeRow.value['value_thousand_USD'],
-                            quantityTrade: mapTradeRow.value['quantity_metric_tons']
-                        }
-                    )
+                 //   console.log('maptraderow', mapTradeRow)
+
+                    if (typeof mapTradeRow != 'undefined') {
+                        vis.countryInfo.push(
+                            {
+                                country: mapName,
+                                valueTrade: mapTradeRow.value['value_thousand_USD'],
+                                quantityTrade: mapTradeRow.value['quantity_metric_tons']
+                            }
+                        )
+                    }
+
                 }
 
             } else {
@@ -157,12 +170,19 @@ class MapVis {
             }
         }
 
-        vis.colorScale.domain([0, d3.max(vis.countryInfo, d=>d['valueTrade'])])
+
+        if (trade_flow === 'import_country') {
+            vis.colorScale.range(["#e1f5fe", "#01579b"])
+        } else {
+            vis.colorScale.range(["#FFEFEA", "#7f0000"])
+        }
+
+        vis.colorScale.domain([0, d3.max(vis.countryInfo, d=>d[selectedCategory])])
 
         vis.countries
             .style("fill", function(d) {
                 if (getObject(d) !== false) {
-                    return vis.colorScale(getObject(d)['valueTrade'])
+                    return vis.colorScale(getObject(d)[selectedCategory])
                 }
                 else {
                     return "white"

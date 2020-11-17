@@ -2,6 +2,11 @@
 *           MAIN           *
 * * * * * * * * * * * * * */
 
+// need: tooltip, legend, selector for import/export, value/quantity, brushing for different years
+
+
+
+
 // init global variables & switches
 let myMapVis;
 
@@ -27,6 +32,21 @@ function initMainPage(dataArray) {
     // init map
     myMapVis = new MapVis('mapDiv', dataArray[0], dataArray[1], dataArray[2]);
 
+}
+
+
+// category select
+
+// let trade_flow = 'export_country';
+// let selectedCategory = 'valueTrade';
+
+let trade_flow = $('#flowSelector').val();
+let selectedCategory = $('#metricSelector').val();
+
+function categoryChange() {
+    trade_flow = $('#flowSelector').val();
+    selectedCategory = $('#metricSelector').val();
+    myMapVis.wrangleData();
 }
 
 

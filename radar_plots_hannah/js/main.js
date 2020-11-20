@@ -1,7 +1,7 @@
-let topRed,
-  bottomRed,
-  topWhite,
-  bottomWhite
+let topWine,
+  bottomWine,
+    redWine,
+    whiteWine
 
 
 let promises = [
@@ -17,15 +17,33 @@ Promise.all(promises)
 
 
 function createVis(data){
-  let redWine = data[0];
-  let whiteWine = data[1];
+  redWine = data[0];
+  whiteWine = data[1];
 
 
-  bottomRed = new RadarVis("bottom-red", redWine, false, "Bottom Red Wines")
-  topRed = new RadarVis("top-red", redWine, true, "Top Red Wines")
-  topWhite = new RadarVis("top-white", whiteWine, true, "Top White Wines")
-  bottomWhite = new RadarVis("bottom-white", whiteWine, false, "Bottom White Wines")
+  bottomWine= new RadarVis("#bottom-wine", redWine, false, "Bottom Wines")
+  topWine = new RadarVis("#top-wine", redWine, true, "Top Wines")
 
 };
 
 
+function onSelectionChange(){
+
+  let typeBox = document.getElementById("wine-type");
+  let typeValue = typeBox.options[typeBox.selectedIndex].value;
+  if (typeValue == "white")
+  {
+    bottomWine.data = whiteWine;
+    topWine.data = whiteWine;
+    bottomWine.wrangleData();
+    topWine.wrangleData();
+  }
+  if (typeValue == "red")
+  {
+    bottomWine.data = redWine;
+    topWine.data = redWine;
+    bottomWine.wrangleData();
+    topWine.wrangleData();
+  }
+
+}

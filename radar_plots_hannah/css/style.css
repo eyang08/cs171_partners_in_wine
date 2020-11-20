@@ -5,11 +5,25 @@ body {
 }
 
 h1 {
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+h5{
+    text-align: center;
 }
 
-#topred {
+#top-wine {
   width: 100%;
   height: 50%;
   margin: 0;
   padding: 0;
+}
+
+#bottom-wine{
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
 }

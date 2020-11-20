@@ -11,8 +11,20 @@ class RadarVis {
     this.top = _top
     this.displayData = [];
     this.title = title
-    this.wrangleData();
+    this.initVis();
   }
+
+  initVis(){
+    let vis = this;
+
+    vis.w = $(vis.parentElement).width() -200;
+    vis.h = $(vis.parentElement).width() -200;
+
+
+
+      vis.wrangleData()
+  }
+
 
 
 wrangleData(){
@@ -29,20 +41,46 @@ wrangleData(){
   }
 
   vis.topTenData = vis.displayData.slice(0, 10)
-  vis.finalData = [];
+  vis.finalData = [[],[],[],[],[],[],[],[],[],[]];
   let i = 0;
 vis.topTenData.forEach(wine => {
-  vis.finalData[i] = [
-    {x: "Alcohol", value: wine.alcohol},
-    {x: "pH", value: wine.pH},
-    {x: "Density", value: wine.density},
-    {x: "Residual Sugar", value: wine["residual sugar"]},
-    {x: "Volatile Acidity", value: wine["volatile acidity"]},
-  ];
+      if (document.getElementById("attribute1").checked == true){
+       vis.finalData[i].push({axis: "Alcohol", value: (wine.alcohol + 5) })
+      }
+      if (document.getElementById("attribute2").checked == true) {
+          vis.finalData[i].push({axis: "pH", value: (wine.pH + 5)})
+      }
+      if (document.getElementById("attribute3").checked == true) {
+          vis.finalData[i].push({axis: "Density", value: (wine.density + 5)})
+      }
+      if (document.getElementById("attribute4").checked == true) {
+          vis.finalData[i].push({axis: "Residual Sugar", value: wine["residual sugar"]})
+      }
+      if (document.getElementById("attribute5").checked == true) {
+        vis.finalData[i].push({axis: "Volatile Acidity", value: wine["volatile acidity"]})
+      }
+      if (document.getElementById("attribute6").checked == true) {
+        vis.finalData[i].push({axis: "Fixed Acidity", value: wine["fixed acidity"]})
+      }
+      if (document.getElementById("attribute7").checked == true) {
+        vis.finalData[i].push({axis: "Citric Acid", value: wine["citric acid"]})
+      }
+      if (document.getElementById("attribute8").checked == true) {
+        vis.finalData[i].push({axis: "Chlorides", value: wine.chlorides })
+      }
+      if (document.getElementById("attribute9").checked == true) {
+        vis.finalData[i].push({axis: "Free Sulfur Dioxide", value: wine["free sulfur dioxide"]})
+      }
+      if (document.getElementById("attribute10").checked == true) {
+        vis.finalData[i].push({axis: "Total Sulfur Dioxide", value: wine["total sulfur dioxide"]})
+      }
+      if (document.getElementById("attribute11").checked == true) {
+        vis.finalData[i].push({axis: "Total Sulfur Dioxide", value: wine["total sulfur dioxide"]})
+      }
   i++;
 
 })
-
+console.log(vis.finalData)
     vis.updateVis()
 };
 
@@ -53,26 +91,20 @@ updateVis () {
   let vis = this;
 
 
-  // create radar chart
-  vis.chart = anychart.radar();
-  // set chart yScale settings
-  vis.chart.yScale()
-    .minimum(-3)
-    .maximum(3)
-    .ticks({'interval':1});
+  vis.mycfg = {
+    w: vis.w,
+    h: vis.h,
+    maxValue: 10,
+    levels: 10,
+    ExtraWidthX: 300,
+      title: vis.title
+  }
 
-  // create first series
-  vis.finalData.forEach(wine=>{
-    vis.chart.line(wine)
-  })
+  console.log(vis.finalData)
+//Call function to draw the Radar chart
+//Will expect that data is in %'s
+  RadarChart.draw(vis.parentElement, vis.finalData, vis.mycfg);
 
-  // set chart title
-  vis.chart.title(vis.title)
-
-  // set container id for the chart
-  vis.chart.container(vis.parentElement);
-  // initiate chart drawing
-  vis.chart.draw();
 
 }
 };

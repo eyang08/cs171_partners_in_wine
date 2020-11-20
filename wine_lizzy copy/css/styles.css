@@ -2,13 +2,77 @@ body {
     margin: 20px;
     padding: 20px;
 }
-#mapDiv {
-    width: 100%;
-    height: 800px;
-    margin: 20px;
+
+h1 {
     padding: 20px;
 }
 
+#mapDiv {
+    width: 100%;
+    height: 800px;
+    /*margin: 20px; */
+    /*padding: 10px;*/
+}
+
+#brushDiv {
+    width: 100%;
+    /*height: 150px;*/
+    height: 200px;
+    margin-right: 20px;
+    margin-left: 20px;
+    /*padding: 10px;*/
+}
+
+
 #flowSelector, #metricSelector {
-    width: 40%;
+    width: 60%;
+    border-color: #343a40;
+}
+
+.toolTip {
+    position: absolute;
+    text-align: left;
+    /*width: 260px;*/
+    /*height: 100px;*/
+    padding: 2px;
+    font: 10px sans-serif;
+    background: rgba(114,47,55,0.5);
+    border-radius: 8px;
+}
+
+#toolTip {
+    border: thin solid grey;
+    border-radius: 5px;
+    background: lightgrey;
+    padding: 10px;
+}
+
+p {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.x-axis {
+    font-size: 5px;
+}
+
+.time-row {
+    margin-left: 5px;
+}
+
+.time-range {
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.time-dash {
+    max-width: 0.5%;
+}
+
+
+.title {
+    font-size: 20px;
 }

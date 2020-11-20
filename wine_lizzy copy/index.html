@@ -17,29 +17,43 @@
 
 	<body>
 		<div class="container-fluid">
-			<div class="row justify-content-center">
-				<div class="align-self-center">
-					<h1>Wine Imports/Exports: interact with year brush, category selector</h1>
-				</div>
-			</div>
+<!--			<div class="row justify-content-center">-->
+<!--				<div class="align-self-center">-->
+<!--					<h1>Wine Imports/Exports</h1>-->
+<!--				</div>-->
+<!--			</div>-->
 			<div class="row">
-				<div class="col-6">
+				<div class = "col-4">
+					<div class="row time-row">
+						<div class="col-3 justify-content-center time-range">
+							<div id="time-period-min"></div>
+						</div>
+						<div class="col-3 align-self-center time-dash">
+							<b> - </b>
+						</div>
+						<div class="col-3 justify-content-center time-range">
+							<div id="time-period-max"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-4">
 					<div class="row justify-content-center">
 						<select id='flowSelector' class="custom-select align-self-center shadow-none" onchange="categoryChange()">
-							<option value="import_country" selected>by import</option>
-							<option value="export_country">by export</option>
+							<option value="import_country" selected>Import</option>
+							<option value="export_country">Export</option>
 						</select>
 					</div>
 				</div>
-				<div class="col-6">
+				<div class="col-4">
 					<div class="row justify-content-center">
 						<select id='metricSelector' class="custom-select align-self-center shadow-none" onchange="categoryChange()">
-							<option value="valueTrade" selected>trade value (k USD)</option>
-							<option value="quantityTrade">trade volume (metric tons)</option>
+							<option value="valueTrade" selected>Trade value (USD)</option>
+							<option value="quantityTrade">Trade volume (metric tons)</option>
 						</select>
 					</div>
 				</div>
 			</div>
+
 			<div class="row justify-content-center">
 				<div id="mapDiv"></div>
 			</div>

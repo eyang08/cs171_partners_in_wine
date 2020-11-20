@@ -8,7 +8,12 @@
 
 
 // init global variables & switches
-let myMapVis;
+let myMapVis,
+    myBrushVis;
+
+
+let selectedTimeRange = [];
+let selectedCountry = '';
 
 
 
@@ -16,7 +21,8 @@ let myMapVis;
 let promises = [
    // d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json"),
-    d3.csv("data/wine_trade_2018.csv")
+    d3.csv("data/wine_trade_2018.csv"),
+    d3.csv("data/wine_trade_full.csv")
 ];
 
 Promise.all(promises)
@@ -26,11 +32,34 @@ Promise.all(promises)
 // initMainPage
 function initMainPage(dataArray) {
 
+    let geoData = dataArray[0]
+    let wineData = dataArray[1]
+    let wineDataFull = dataArray[2]
+
+    wineData.forEach(function(d) {
+        d.year = +d.year
+    })
+    wineDataFull.forEach(function(d) {
+        d.year = +d.year
+    })
+
+
+
     // log data
-    console.log('check out the data', dataArray);
+    console.log('check out the data', wineData);
+
+    let MyEventHandler = {};
 
     // init map
-    myMapVis = new MapVis('mapDiv', dataArray[0], dataArray[1], dataArray[2]);
+    myMapVis = new MapVis('mapDiv', geoData, wineDataFull);
+
+    // init brush
+    myBrushVis = new BrushVis('brushDiv', geoData, wineDataFull, MyEventHandler);
+
+    // when 'selectionChanged' is triggered, specified function is called
+    $(MyEventHandler).bind("selectionChanged", function(event, rangeStart, rangeEnd) {
+        myBrushVis.onSelectionChanged(rangeStart, rangeEnd)
+    });
 
 }
 
@@ -47,6 +76,7 @@ function categoryChange() {
     trade_flow = $('#flowSelector').val();
     selectedCategory = $('#metricSelector').val();
     myMapVis.wrangleData();
+    myBrushVis.wrangleDataStatic();
 }
 
 

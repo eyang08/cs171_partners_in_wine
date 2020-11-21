@@ -8,32 +8,59 @@
 <body>
 
 <div class="container-fluid">
-  <div class="row" style="height: 70vh">
-    <div class="col-6" style="background: white">
+  <h1>Wine Attributes</h1>
+  <h2>Explore Wines by Chemical Properties</h2>
+
+
+  <div class="row" style="height: 100%">
+    <div class="col-2" style="background: white; border: thin solid grey; border-radius: 5px">
+      <div class="row justify-content-center" style="height: 100%; background-color: lightgray; border-radius: 5px; border-color: black">
+        <h5> Choose Wine Type: </h5>
+        <form class="form-inline">
+          <div class="form-group">
+            <select class="form-control" id="wine-type" onchange="onSelectionChange()">
+              <option value="red">Red Wines</option>
+              <option value="white">White Wines</option>
+            </select>
+          </div>
+        </form>
+        <h6> Choose Attributes to Compare</h6>
+        <form>
+          <input type="checkbox" id="attribute1" value="alcohol" onchange="onSelectionChange()" checked>
+          <label for="attribute1"> Alcohol </label><br>
+          <input type="checkbox" id="attribute2" value="pH" onchange="onSelectionChange()" checked>
+          <label for="attribute2"> pH</label><br>
+          <input type="checkbox" id="attribute3" value="density" onchange="onSelectionChange()" checked>
+          <label for="attribute3"> Density </label><br>
+          <input type="checkbox" id="attribute4" value="residual sugar" onchange="onSelectionChange()" checked>
+          <label for="attribute4"> Residual Sugar </label><br>
+          <input type="checkbox" id="attribute5" value="volatile acidity" onchange="onSelectionChange()"  checked>
+          <label for="attribute5"> Volatile Acidity</label><br>
+          <input type="checkbox" id="attribute6" value="fixed acidity" onchange="onSelectionChange()"  checked>
+          <label for="attribute6"> Fixed Acidity </label><br>
+          <input type="checkbox" id="attribute7" value="citric acidity" onchange="onSelectionChange()" checked>
+          <label for="attribute7"> Citric Acid </label><br>
+          <input type="checkbox" id="attribute8" value="chlorides" onchange="onSelectionChange()" checked>
+          <label for="attribute8"> Chlorides</label><br>
+          <input type="checkbox" id="attribute9" value="free sulfur dioxides" onchange="onSelectionChange()" checked>
+          <label for="attribute9"> Free Sulfur Dioxides </label><br>
+          <input type="checkbox" id="attribute10" value="total sulfur dioxides"onchange="onSelectionChange()"  checked>
+          <label for="attribute10"> Total Sulfur Dioxides </label><br>
+          <input type="checkbox" id="attribute11" value="sulphates" onchange="onSelectionChange()" checked>
+          <label for="attribute11"> Sulphates </label><br><br>
+        </form>
+      </div>
+    </div>
+    <div class="col-5" style="background: white">
       <div class="row justify-content-center" style="height: 100%">
-        <div id = "top-red" class="align-self-center">
+        <div id = "top-wine" class="align-self-center">
 
         </div>
       </div>
     </div>
-    <div class="col-6" style="background: white">
+    <div class="col-5" style="background: white">
       <div class="row justify-content-center" style="height: 100%">
-        <div id = "bottom-red" class=" align-self-center">
-        </div>
-      </div>
-    </div>
-    <div class="row" style="height: 70vh">
-      <div class="col-6" style="background: white">
-        <div class="row justify-content-center" style="height: 100%">
-          <div id = "top-white" class="align-self-center">
-
-          </div>
-        </div>
-      </div>
-      <div class="col-6" style="background: white">
-        <div class="row justify-content-center" style="height: 100%">
-          <div id = "bottom-white" class=" align-self-center">
-          </div>
+        <div id = "bottom-wine" class=" align-self-center">
         </div>
       </div>
     </div>
@@ -48,6 +75,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
 <script src="js/radarVis.js"></script>
+<script src="js/RadarChart.js"></script>
+
 
 </body>
 </html>

@@ -75,7 +75,7 @@ vis.topTenData.forEach(wine => {
         vis.finalData[i].push({axis: "Total Sulfur Dioxide", value: wine["total sulfur dioxide"]})
       }
       if (document.getElementById("attribute11").checked == true) {
-        vis.finalData[i].push({axis: "Total Sulfur Dioxide", value: wine["total sulfur dioxide"]})
+        vis.finalData[i].push({axis: "Sulphates", value: wine["sulphates"]})
       }
   i++;
 
@@ -90,6 +90,11 @@ console.log(vis.finalData)
 updateVis () {
   let vis = this;
 
+  vis.color = "crimson"
+
+  if (vis.data == whiteWine){
+      vis.color = "darksalmon"
+  }
 
   vis.mycfg = {
     w: vis.w,
@@ -97,7 +102,8 @@ updateVis () {
     maxValue: 10,
     levels: 10,
     ExtraWidthX: 300,
-      title: vis.title
+      title: vis.title,
+      color: vis.color
   }
 
   console.log(vis.finalData)

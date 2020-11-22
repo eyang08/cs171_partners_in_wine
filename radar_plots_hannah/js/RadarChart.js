@@ -12,12 +12,13 @@ let RadarChart = {
             levels: 10,
             maxValue: 0,
             radians: 2 * Math.PI,
-            opacityArea: 0.5,
+            opacityArea: 0,
             ToRight: 5,
             TranslateX: 80,
             TranslateY: 30,
             ExtraWidthX: 100,
             ExtraWidthY: 100,
+            color: "crimson",
             title: "Wines"
         };
 
@@ -40,7 +41,6 @@ let RadarChart = {
             .attr("height", cfg.h+cfg.ExtraWidthY)
             .append("g")
             .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
-        ;
 
         let tooltip;
 
@@ -124,7 +124,7 @@ let RadarChart = {
                 .append("polygon")
                 .attr("class", "radar-chart-serie"+series)
                 .style("stroke-width", "2px")
-                .style("stroke", "crimson")
+                .style("stroke", cfg.color)
                 .attr("points",function(d) {
                     var str="";
                     for(var pti=0;pti<d.length;pti++){
@@ -132,7 +132,7 @@ let RadarChart = {
                     }
                     return str;
                 })
-                .style("fill","crimson")
+                .style("fill", cfg.color)
                 .style("fill-opacity", cfg.opacityArea)
                 .on('mouseover', function (d){
                     z = "polygon."+d3.select(this).attr("class");
@@ -171,7 +171,7 @@ let RadarChart = {
                     return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
                 })
                 .attr("data-id", function(j){return j.axis})
-                .style("fill", "crimson")
+                .style("fill", cfg.color)
                 .style("fill-opacity", .9)
                 .on('mouseover', function (d){
                     newX =  parseFloat(d3.select(this).attr('cx')) - 10;
@@ -218,7 +218,7 @@ let RadarChart = {
             .style("font-family", 'sans-serif')
             .style("font-size", "20px")
             .attr('class', 'title bar-title')
-            .attr('transform', `translate(${cfg.width / 2}, 10)`)
+            .attr('transform', `translate(${cfg.width / 2}, 0)`)
             .attr('text-anchor', 'middle')
     }
 };

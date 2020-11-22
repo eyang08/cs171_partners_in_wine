@@ -2,8 +2,10 @@
 *           MAIN           *
 * * * * * * * * * * * * * */
 
-// clusters of grapes into differently priced wine, circles are either variety or province
+// clusters of grapes into differently priced wine, circles are variety
 // size of circles = # of wines in category
+// tooltip w/ info
+// make tier labels have trellis background
 
 
 // init global variables & switches

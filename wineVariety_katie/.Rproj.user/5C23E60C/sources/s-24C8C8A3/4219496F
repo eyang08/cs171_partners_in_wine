@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1606073997211.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4219496F",
+    "lastKnownWriteTime" : 7598805585071202670,
+    "last_content_update" : 1606073997211,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "863BB62D",
+        "caption" : "texter",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=texter&cache_key=863BB62D",
+        "displayedObservations" : 50,
+        "environment" : "",
+        "object" : "texter",
+        "preview" : 0,
+        "totalObservations" : 50,
+        "variables" : 10
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

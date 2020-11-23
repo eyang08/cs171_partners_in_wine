@@ -25,8 +25,22 @@ class BubbleVis {
             .append('g')
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
+        // vis.svg.append("defs")
+        //     .append("pattern")
+        //     .attr("id", "bgimg")
+        //     .attr("width", "8")
+        //     .attr("height", "8")
+        //     .attr("patternUnits", "objectBoundingBox")
+        //     .append("image")
+        //     .attr("x", "0")
+        //     .attr("y", "0")
+        //     .attr("width", "150")
+        //     .attr("height", "100")
+        //     .attr("xlink:href", "img/plank1.png")
+
         vis.tiers = vis.svg.append('g')
             .attr('class', 'tier-labels')
+
 
 
         vis.colorScale = ['#3c1361', '#52307c', '#663a82', '#7c5295', '#b491c8', '#bca0dc']
@@ -43,6 +57,10 @@ class BubbleVis {
         vis.xCenter = vis.xCenter.reverse()
 
         console.log('spacing', vis.xCenter)
+
+        // append tooltip
+        vis.tooltip = d3.select("body").append('div')
+            .attr('class', "toolTip")
 
 
         // vis.numNodes = 350;
@@ -102,13 +120,17 @@ class BubbleVis {
 
         console.log('wineData', vis.wineData)
 
-
+        vis.wineByTier = d3.groups(vis.wineData, d=>d['price_tier'])
         vis.wineByTierVariety = d3.groups(vis.wineData, d=> d['price_tier'], d=> d['variety'])
 
+
+        console.log('wineByTier', vis.wineByTier)
         console.log('wineByTierVariety', vis.wineByTierVariety)
 
         vis.preprocessedData = []
         vis.wineByTierVariety.forEach( (tier, i) => {
+
+            let totalWinesPerTier = vis.wineByTier[i][1].length
 
             tier[1].sort((a,b) => {return b[1].length - a[1].length})
 
@@ -118,7 +140,14 @@ class BubbleVis {
 
             topVarieties.forEach((variety) => {
                 vis.preprocessedData.push(
-                    {tier: tier[0], tierIdx: i, variety: variety[0], numberWines: variety[1].length}
+                    {
+                        tier: tier[0],
+                        tierIdx: i,
+                        variety: variety[0],
+                        numberWines: variety[1].length,
+                        varietyFrequency: variety[1].length / totalWinesPerTier,
+                        avgPrice: d3.mean(variety[1], d=> d.price)
+                    }
                 )
             })
 
@@ -142,25 +171,90 @@ class BubbleVis {
             .on('tick', ticked)
 
         function ticked() {
-            let u = d3.select('svg g')
+            let bubbles = d3.select('svg g')
                 .selectAll('circle')
                 .data(vis.preprocessedData);
 
-            u.enter()
+            bubbles.enter()
                 .append('circle')
                 .attr('r', d=> Math.sqrt(d.numberWines/6)+10)
-                // .attr('r', Math.random() * 20)
 
                 .style('fill', d=> vis.colorScale[d.tierIdx])
-                .merge(u)
+                .merge(bubbles)
                 .attr('cx', d=> d.x)
                 .attr('cy', d=> d.y)
 
-            u.exit().remove();
+
+            // tooltip
+            bubbles.on('mouseover', function(event, d){
+                d3.select(this)
+                    .attr('stroke-width', '2px')
+                    .attr('stroke', '#9c9463')
+                    .style('fill', '#d6d96a')
+
+                // console.log(this)
+
+
+                // info to include: tier, variety, frequency of variety within tier
+                // avg price of variety within tier
+
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                         <div id="toolTip">
+                             <h5>${d.variety}<h4>
+                             <p> 
+                                Price Tier: ${d.tier}<br>
+                                Variety Frequency: ${d3.format(".2%")(d.varietyFrequency)}<br>
+                                Avg price: ${d3.format("$.2f")(d.avgPrice)}
+                             </p>    
+                         </div>`);
+            })
+                .on('mouseout', function(event, d){
+                    d3.select(this)
+                        .attr('stroke-width', '0px')
+                        .style("fill", d=> vis.colorScale[d.tierIdx])
+
+                    vis.tooltip
+                        .style("opacity", 0)
+                        .style("left", 0)
+                        .style("top", 0)
+                        .html(``);
+                })
+
+
+            bubbles.exit().remove();
+
+
         }
 
+
+
+        // vis.tiers.selectAll("rect")
+        //     .data(vis.wineByTierVariety)
+        //     .enter().append("rect")
+        //     .attr("x", (d,i) => vis.xCenter[i] - 50)
+        //     .attr("y", "-380")
+        //     .attr("fill", "url(#bgimg)")
+        //     // .attr("xlink:href", "../img/plank1.png")
+        //     .attr("width", "150")
+        //     .attr("height", "100")
+
+        vis.tiers.selectAll("image")
+            .data(vis.wineByTier)
+            .enter().append("image")
+            .attr("x", (d,i) => vis.xCenter[i] - 75)
+            .attr("y", "-380")
+            .attr("xlink:href", (d,i) => "img/plank" + i % 4 + ".png")
+            .attr("width", "150")
+            .attr("height", "100")
+
+
+
         vis.tiers.selectAll("text")
-            .data(vis.wineByTierVariety)
+            .data(vis.wineByTier)
             .enter().append("text")
             .attr("x", (d,i) => vis.xCenter[i])
             .attr("y", "-380")

@@ -2,28 +2,20 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js">     </script>
-  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
 </head>
 <body>
 
 <div class="container-fluid">
-  <h1>Wine Attributes</h1>
+  <h1>What Makes Wine Good or Bad?</h1>
   <h2>Explore Wines by Chemical Properties</h2>
-
+  <p> When trying to think about how wine is characterized a s good or bad, we can either turn to expert sommeliers,
+    whose descriptions you’ll be able to see later, or how science has looked at these things. In a machine learning
+    study, wine scientists (the best job ever) created a model with the listed chemical properties of wine and taught
+    the AI how to categorize wines as good or bad. Play with the properties in both red and white wine to see </p>
 
   <div class="row" style="height: 100%">
-    <div class="col-2" style="background: white; border: thin solid grey; border-radius: 5px">
-      <div class="row justify-content-center" style="height: 100%; background-color: lightgray; border-radius: 5px; border-color: black">
-        <h5> Choose Wine Type: </h5>
-        <form class="form-inline">
-          <div class="form-group">
-            <select class="form-control" id="wine-type" onchange="onSelectionChange()">
-              <option value="red">Red Wines</option>
-              <option value="white">White Wines</option>
-            </select>
-          </div>
-        </form>
+    <div class="col-2" style="background: white;">
+      <div class="row justify-content-center" style="height: 60%; background-color: lightgray; border-radius: 5px; border-color: black">
         <h6> Choose Attributes to Compare</h6>
         <form>
           <input type="checkbox" id="attribute1" value="alcohol" onchange="onSelectionChange()" checked>

@@ -1,5 +1,5 @@
-let topWine,
-  bottomWine,
+let redWineVis,
+  whiteWineVis,
     redWine,
     whiteWine
 
@@ -21,29 +21,16 @@ function createVis(data){
   whiteWine = data[1];
 
 
-  bottomWine= new RadarVis("#bottom-wine", redWine, false, "Bottom Wines")
-  topWine = new RadarVis("#top-wine", redWine, true, "Top Wines")
+  redWineVis = new RadarVis("#bottom-wine", redWine, false, "Red Wines")
+  whiteWineVis = new RadarVis("#top-wine", whiteWine, true, "White Wines")
 
 };
 
 
 function onSelectionChange(){
 
-  let typeBox = document.getElementById("wine-type");
-  let typeValue = typeBox.options[typeBox.selectedIndex].value;
-  if (typeValue == "white")
-  {
-    bottomWine.data = whiteWine;
-    topWine.data = whiteWine;
-    bottomWine.wrangleData();
-    topWine.wrangleData();
-  }
-  if (typeValue == "red")
-  {
-    bottomWine.data = redWine;
-    topWine.data = redWine;
-    bottomWine.wrangleData();
-    topWine.wrangleData();
-  }
+
+    redWineVis.wrangleData();
+    whiteWineVis.wrangleData();
 
 }

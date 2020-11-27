@@ -54,14 +54,92 @@
 
 <section id="section4" class="cd-section">
 	<div class="content-wrapper">
-		<h2>EXPLORE YOUR TASTE</h2>
-		<p>This visualization allows for wine discovery in by the audience’s preferences. Seeing a word cloud of common descriptors, the audience will be able to select intriguing descriptors to their taste preferences, to find what the top 5 wines are.
-		</p>
-		<img src="img/IMG_5213.jpg" style="width: 80%; height: 10%">
+		<h2>EXPLORE WINE VARIETIES</h2>
+		<!-- WRAPPER -->
+		<div class="container-fluid" style="height: 80%; padding-top:2vh">
+			<div class="row justify-content-center">
+				<select id='categorySelector' class="custom-select align-self-center" style="width: 40%" onchange="categoryChange()">
+					<option value="Pinot Noir" selected>Pinot Noir</option>
+					<option value="Chardonnay">Chardonnay</option>
+					<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+					<option value="Bordeaux-style Red Blend">Bordeaux-style Red</option>
+					<option value="Riesling">Riesling</option>
+					<option value="Sauvignon Blanc">Sauvignon Blanc</option>
+					<option value="Syrah">Syrah</option>
+					<option value="Rosé">Rosé</option>
+					<option value="Merlot">Merlot</option>
+					<option value="Nebbiolo">Nebbiolo</option>
+					<option value="Zinfandel">Zinfandel</option>
+				</select>
+			</div>
+			<!-- Visualizations -->
+			<div class="row" style="height: 50%; padding-top: 0; padding-left: 1vh; padding-right: 1vh;">
+				<div class="col">
+					<div class="row" style="border: thin solid rgba(211,211,211,0.73); border-radius: 5px; background: rgba(214,226,233,0.42)">
+						<div class="col">
+							<div id="wordcloudDiv" style="height: 100%; width:100%"></div>
+						</div>
+						<div class="col">
+							<div class="row">
+								<div id="pieDiv" style="height: 50vh; width: 100%;">
+								</div>
+							</div>
+							<div class="row">
+								<div id="infoDiv" style="height: 20vh; width: 100%;">
+									<table class="table" id="table1">
+										<thead>
+										</thead>
+										<tbody class="justify-content-center">
+										<tr>
+											<td>Average Price</td>
+											<td id="price"></td>
+										</tr>
+										<tr>
+											<td>Average Rating</td>
+											<td id="rating"></td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="height: 73vh; padding-top: 0; padding-left: 1vh; padding-right: 1vh;">
+				<div id="barDiv" style="height: 71vh; width: 100%;"></div>
+			</div>
+
+		</div>
 	</div>
 </section><!-- cd-section -->
 	
 <script src="js/jquery-2.1.4.js"></script>
-<script src="webpage/js/main.js"></script> <!-- Resource jQuery -->
+<!-- - - - - - - - - - - - >
+<    Load JS libraries     >
+<- - - - - - - - - - - - -->
+
+<!-- BOOTSTRAP -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+<!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+
+<!-- OWN JS -->
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="js/wineVariety/main.js"></script>
+<script src="js/wineVariety/varietyinfo.js"></script>
+<script src="js/wineVariety/piechart.js"></script>
+<script src="js/wineVariety/wordcloud.js"></script>
+<script src="js/wineVariety/barchart.js"></script>
 </body>
 </html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href='https://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+
+
+	<title>WINE</title>
+</head>
+<body>
+<nav class="cd-vertical-nav">
+	<ul>
+		<li><a href="#section1" class="active"><span class="label">Intro</span></a></li>
+		<li><a href="#section2"><span class="label">Map</span></a></li>
+		<li><a href="#section3"><span class="label">Chemicals</span></a></li>
+		<li><a href="#section4"><span class="label">Descriptors</span></a></li>
+		<li><a href="#section5"><span class="label">Bubble</span></a></li>
+	</ul>
+</nav><!-- .cd-vertical-nav -->
+
+<button class="cd-nav-trigger cd-image-replace">Open navigation<span aria-hidden="true"></span></button>
+
+<section id="section1" class="cd-section">
+	<div class="content-wrapper">
+		<h1>WINE <b>101</b></h1>
+		<a href="#section2" class="cd-scroll-down cd-image-replace">scroll down</a>
+	</div>
+</section><!-- cd-section -->
+
+<section id="section2" class="cd-section">
+	<div class="container-fluid">
+		<h2>WINE WORLDWIDE</h2>
+		<p>Wine is ubiquitously enjoyed across the world.
+			Take a look at the largest wine importing and exporting countries, by both trade value and trade volume.
+			Select a time range by brushing over the timeline below, and hover over any country for more specific information.
+		</p>
+
+		<div class="row justify-content-center">
+
+			<div class="col">
+				<div class="row justify-content-center">
+					<select id='flowSelector' class="custom-select align-self-center shadow-none" onchange="categoryChange()">
+						<option value="import_country" selected>Import</option>
+						<option value="export_country">Export</option>
+					</select>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row justify-content-center">
+					<select id='metricSelector' class="custom-select align-self-center shadow-none" onchange="categoryChange()">
+						<option value="valueTrade" selected>Trade value (USD)</option>
+						<option value="quantityTrade">Trade volume (metric tons)</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class=" time-row justify-content-center d-flex">
+			<div id="time-period-min" class="time-range"></div>
+			<div class="col align-self-center time-dash"><b> - </b></div>
+			<div id="time-period-max" class="time-range"></div>
+
+		</div>
+
+		<div class="row justify-content-center">
+			<div id="mapDiv"></div>
+		</div>
+		<div class="row justify-content-center">
+			<div id="brushDiv"></div>
+		</div>
+
+	</div>
+</section><!-- cd-section -->
+
+<section id="section3" class="cd-section">
+	<div class="content-wrapper">
+		<h2>THE CHEMISTRY OF WINE</h2>
+		<p>Experts broke down the chemical attributes of wines and measured them against expert wine quality ratings. Comparing high and low quality wines, we see that high quality wines tend to be more XXX. </p>
+		<div class="row" style="height: 80%">
+			<div class="col-2">
+				<div class="row justify-content-center" style="height: 60%; background-color: darkslategray; border-radius: 5px; border-color: black">
+					<h5> Choose Attributes to Compare</h5>
+					<form>
+						<input type="checkbox" id="attribute1" value="alcohol" onchange="onSelectionChange()" checked>
+						<label for="attribute1"> Alcohol </label><br>
+						<input type="checkbox" id="attribute2" value="pH" onchange="onSelectionChange()" checked>
+						<label for="attribute2"> pH</label><br>
+						<input type="checkbox" id="attribute3" value="density" onchange="onSelectionChange()" checked>
+						<label for="attribute3"> Density </label><br>
+						<input type="checkbox" id="attribute4" value="residual sugar" onchange="onSelectionChange()" checked>
+						<label for="attribute4"> Residual Sugar </label><br>
+						<input type="checkbox" id="attribute5" value="volatile acidity" onchange="onSelectionChange()"  checked>
+						<label for="attribute5"> Volatile Acidity</label><br>
+						<input type="checkbox" id="attribute6" value="fixed acidity" onchange="onSelectionChange()"  checked>
+						<label for="attribute6"> Fixed Acidity </label><br>
+						<input type="checkbox" id="attribute7" value="citric acidity" onchange="onSelectionChange()" checked>
+						<label for="attribute7"> Citric Acid </label><br>
+						<input type="checkbox" id="attribute8" value="chlorides" onchange="onSelectionChange()" checked>
+						<label for="attribute8"> Chlorides</label><br>
+						<input type="checkbox" id="attribute9" value="free sulfur dioxides" onchange="onSelectionChange()" checked>
+						<label for="attribute9"> Free Sulfur Dioxides </label><br>
+						<input type="checkbox" id="attribute10" value="total sulfur dioxides"onchange="onSelectionChange()"  checked>
+						<label for="attribute10"> Total Sulfur Dioxides </label><br>
+						<input type="checkbox" id="attribute11" value="sulphates" onchange="onSelectionChange()" checked>
+						<label for="attribute11"> Sulphates </label><br><br>
+					</form>
+				</div>
+			</div>
+			<div class="col-5" >
+				<div class="row justify-content-center" style="height: 100%">
+					<div id ="top-wine" class="align-self-center" style="height: 100%; width: 100%">
+
+					</div>
+				</div>
+			</div>
+			<div class="col-5">
+				<div class="row justify-content-center" style="height: 100%">
+					<div id ="bottom-wine" class=" align-self-center" style="height: 100%; width: 100%">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section><!-- cd-section -->
+
+<section id="section4" class="cd-section">
+	<div class="content-wrapper">
+		<h2>EXPLORE YOUR TASTE</h2>
+		<p>This visualization allows for wine discovery in by the audience’s preferences. Seeing a word cloud of common descriptors, the audience will be able to select intriguing descriptors to their taste preferences, to find what the top 5 wines are.
+		</p>
+		<img src="img/IMG_5213.jpg" style="width: 80%; height: 10%">
+	</div>
+</section><!-- cd-section -->
+
+<section id="section5" class="cd-section">
+	<div class="container-fluid">
+		<h2>BUBBLE CHART</h2>
+		<p>
+			A great number of wine varieties can be enjoyed, no matter your budget.
+			The top 20 most prevalent varieties within each price tier are clustered together, sized by their prevalence.
+			Hover over each grape to see each variety’s average price, within the price tier.
+		</p>
+		<div class="row justify-content-center">
+			<div id="bubbleDiv"></div>
+		</div>
+
+	</div>
+</section><!-- cd-section -->
+	
+<script src="js/jquery-2.1.4.js"></script>
+<script src="webpage/js/main.js"></script> <!-- Resource jQuery -->
+
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+<!-- OWN JS -->
+
+
+<script src="js/mapVis.js"></script>
+<script src="js/brushVis.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/mainMapBubble.js"></script>
+
+<script src="js/bubbleVis.js"></script>
+
+<script src="js/radarVis.js"></script>
+<script src="js/RadarChart.js"></script>
+
+</body>
+</html>

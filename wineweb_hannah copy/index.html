@@ -24,6 +24,7 @@
 		<li><a href="#section3"><span class="label">Chemicals</span></a></li>
 		<li><a href="#section4"><span class="label">Descriptors</span></a></li>
 		<li><a href="#section5"><span class="label">Bubble</span></a></li>
+		<li><a href="#section6"><span class="label">Variety</span></a></li>
 	</ul>
 </nav><!-- .cd-vertical-nav -->
 
@@ -160,6 +161,72 @@
 
 	</div>
 </section><!-- cd-section -->
+
+<section id="section6" class="cd-section">
+	<div class="container-fluid">
+		<h2>DISCOVER WINE VARIETIES</h2>
+		<div class="container-fluid" style="height: 150vh; padding-top: 1vh">
+			<div class="row">
+				<div class="col-2">
+					<p>Select a Wine Variety:</p>
+				</div>
+				<div class="col-4">
+					<div class="row" style="height: 100%">
+						<select id='categorySelector' class="custom-select align-self-center" style="width: 80%" onchange="varietyChange()">
+							<option value="Pinot Noir" selected>Pinot Noir</option>
+							<option value="Chardonnay">Chardonnay</option>
+							<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+							<option value="Bordeaux-style Red Blend">Bordeaux-style Red</option>
+							<option value="Riesling">Riesling</option>
+							<option value="Sauvignon Blanc">Sauvignon Blanc</option>
+							<option value="Syrah">Syrah</option>
+							<option value="Rosé">Rosé</option>
+							<option value="Merlot">Merlot</option>
+							<option value="Nebbiolo">Nebbiolo</option>
+							<option value="Zinfandel">Zinfandel</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="height: 150vh; padding-top: 0; padding-left: 1vh; padding-right: 1vh;">
+				<div class="col">
+					<div class="row" style="border: thin solid rgba(211,211,211,0.73); border-radius: 5px; background: rgba(214,226,233,0.42)">
+						<div class="col-6 justify-content-center" style="height: 100%">
+							<div id="wordcloudDiv" style="height: 71vh; width:100%"></div>
+						</div>
+						<div class="col-5 justify-content-center">
+							<div class="row">
+								<div id="pieDiv" style="height: 50vh; width: 100%;">
+								</div>
+							</div>
+							<div class="row justify-content-center">
+								<div id="infoDiv" style="height: 20vh; width: 100%;">
+									<table class="table" id="table1">
+										<thead>
+										</thead>
+										<tbody class="justify-content-center">
+										<tr>
+											<td>Average Price</td>
+											<td id="price"></td>
+										</tr>
+										<tr>
+											<td>Average Rating</td>
+											<td id="rating"></td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="border: thin solid rgba(211,211,211,0.73); border-radius: 5px; background: rgba(214,226,233,0.42)">
+						<div id="barDiv" style="height: 50vh; width: 100%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!-- cd-section -->
 	
 <script src="js/jquery-2.1.4.js"></script>
 <script src="webpage/js/main.js"></script> <!-- Resource jQuery -->
@@ -171,6 +238,8 @@
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
 <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+<!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 
 <!-- OWN JS -->
 
@@ -178,12 +247,17 @@
 <script src="js/mapVis.js"></script>
 <script src="js/brushVis.js"></script>
 <script src="js/helpers.js"></script>
+
 <script src="js/mainMapBubble.js"></script>
 
 <script src="js/bubbleVis.js"></script>
 
 <script src="js/radarVis.js"></script>
 <script src="js/RadarChart.js"></script>
+
+<script src="js/piechart.js"></script>
+<script src="js/wordcloud.js"></script>
+<script src="js/barchart.js"></script>
 
 </body>
 </html>

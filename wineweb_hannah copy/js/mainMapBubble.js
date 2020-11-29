@@ -14,14 +14,46 @@ let myMapVis,
     redWineVis,
     whiteWineVis,
     redWineData,
-    whiteWineData;
-
+    whiteWineData,
+    myWordCloud,
+    myPieChart,
+    myBarChart;
 
 
 let selectedTimeRange = [];
 let selectedCountry = '';
 
+// Convert string to numerical when necessary
+var rowConverter = function(d) {
+    return {
+        variety: d.variety,
+        country: d.country,
+        points: parseFloat(d.points),
+        price: parseFloat(d.price),
+        province: d.province,
+        region: d["region_1"],
+        title: d.title,
+        winery: d.winery,
+        count: parseFloat(d.n),
+        word: d.word,
+        year: parseFloat(d.year),
+        value: d.points/d.price
+    };
+}
+var rowConverter2 = function(d) {
+    return {
+        variety: d.variety,
+        location: d.location,
+        percent: parseFloat(d.percent)
+    };
+}
 
+var rowConverter3 = function(d) {
+    return {
+        country: d.country,
+        total: parseFloat(d.n)
+    };
+}
 
 // load data using promises
 let promises = [
@@ -31,7 +63,11 @@ let promises = [
     d3.csv("data/wine_trade_full.csv"),
     d3.csv("data/wine_magazine.csv"),
     d3.csv("data/winequality-red.csv"),
-    d3.csv("data/winequality-white.csv")
+    d3.csv("data/winequality-white.csv"),
+    d3.csv("data/winemag_count.csv", rowConverter), //6
+    d3.csv("data/winemag_variety.csv", rowConverter2), //7
+    d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json"), //8
+    d3.csv("data/winemag_country.csv", rowConverter3) //9
 ];
 
 Promise.all(promises)
@@ -90,6 +126,15 @@ function initMainPage(dataArray) {
     redWineVis = new RadarVis("#bottom-wine", redWine, false, "Red Wines")
     whiteWineVis = new RadarVis("#top-wine", whiteWine, true, "White Wines")
 
+    // init word cloud
+    myWordCloud = new WordCloud('wordcloudDiv', dataArray[6]);
+
+    // init piechart
+    myPieChart = new PieChart('pieDiv', dataArray[6], dataArray[7], dataArray[8], dataArray[9]);
+
+    // init piechart
+    myBarChart = new BarChart('barDiv', dataArray[6]);
+
 }
 
 
@@ -114,5 +159,14 @@ function onSelectionChange(){
     redWineVis.wrangleData();
     whiteWineVis.wrangleData();
 
+}
+
+let selectedVariety = $('#categorySelector').val();
+
+function varietyChange() {
+    selectedVariety = $('#categorySelector').val();
+    myWordCloud.wrangleData(); // maybe you need to change this slightly depending on the name of your MapVis instance
+    myPieChart.wrangleData()
+    myBarChart.wrangleData();
 }
 

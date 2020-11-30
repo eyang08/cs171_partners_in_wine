@@ -82,17 +82,24 @@
 </section><!-- cd-section -->
 
 <section id="section3" class="cd-section">
-	<div class="content-wrapper">
+	<div class="container-fluid">
 		<h2>THE CHEMISTRY OF WINE</h2>
-		<p>
-			When trying to think about how wine is characterized a s good or bad, we can either turn to expert sommeliers,
-			whose descriptions you’ll be able to see later, or how science has looked at these things. In a machine learning
-			study, wine scientists (the best job ever) created a model with the listed chemical properties of wine and taught
-			the AI how to categorize wines as good or bad. Play with the properties in both red and white wine to see
-		</p>
-		<div class="row" style="height: 65%">
+		<div class="row">
+			<p style="font-size: 15px;">
+				When trying to think about how wine is characterized a s good or bad, we can either turn to expert sommeliers,
+				whose descriptions you’ll be able to see later, or how science has looked at these things. In a machine learning
+				study, wine scientists (the best job ever) created a model with the listed chemical properties of wine and taught
+				the AI how to categorize wines as good or bad. Play with the properties in both red and white wine to see
+			</p>
+			<p style="font-size: 15px;">
+				To make the chart easier to compare between chemistry components, the data was standardized with a
+				mean of 1 and standard deviation of 1. Each of the rings represents the average of a quality level,
+				which goes from 1-10, but only ended up using the range 3-8 in the predictions.
+			</p>
+		</div>
+		<div class="row" style="height: 30%">
 			<div class="col-2">
-				<div class="row justify-content-center" style="height: 80%; background-color: darkslategray; border-radius: 5px; border-color: black">
+				<div class="row justify-content-center" style="height: 100%; background-color: darkslategray; border-radius: 5px; border-color: black">
 					<h5> Choose Attributes to Compare</h5>
 					<form>
 						<input type="checkbox" id="attribute1" value="alcohol" onchange="onSelectionChange()" checked>
@@ -120,21 +127,42 @@
 					</form>
 				</div>
 			</div>
-			<div class="col-5" >
+			<div class="col-5" style="height: 40%">
 				<div class="row justify-content-center" style="height: 100%">
 					<div id ="top-wine" class="align-self-center" style="height: 100%; width: 100%">
 
 					</div>
 				</div>
 			</div>
-			<div class="col-5">
+			<div class="col-5" style="height: 40%">
 				<div class="row justify-content-center" style="height: 100%">
 					<div id ="bottom-wine" class=" align-self-center" style="height: 100%; width: 100%">
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="row">
+			<div class="col">
+				<p style="font-size: 25px;"> Chemical Components Translation</p>
+				<ul style="font-size: 15px;">
+					<li>Alcohol: Alcohol by volume (the good stuff) </li>
+					<li>pH: Overall measure of acidity</li>
+					<li>Citric Acid: What typically makes something sour, adds freshness</li>
+					<li>Residual Sugar: What sugar is left after fermentation, controls sweetness of the wine</li>
+					<li>Sulphates: Prevents oxidation in the wine, keeps it fresh throughout storage time</li>
+					<li>TSD: What SO2 is added overall, both free to fight oxidation and bonded to other chemicals in the wine</li>
+					<li>FSD: What SO2 remains free in the wine to keep it fresh and fight oxidation</li>
+					<li>Density: Translates into the strength of the wine and its flavors</li>
+					<li>Chlorides: The amount of salt in the wine</li>
+					<li>Vol. Acidity: The amount of acetic acid, can lead to unpleasant vinegar taste</li>
+					<li>Fixed Acidity: All acids in the wine, ones that don’t evaporate</li>
+				</ul>
+			</div>
+			<div class="col">
+				<p style="font-size: 25px;"> Takeaways</p>
+				<p> </p>
+			</div>
+		</div>
 	</div>
 </section><!-- cd-section -->
 

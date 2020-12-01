@@ -1,17 +1,27 @@
 /* Radar Plots*/
 
-#section3{
+#section3 {
   height: 200vh;
 }
 
 /*MAP*/
 
-#section2 {
+#section2, #section3, #section4 {
   padding: 100px;
 }
 
-#section2 div p {
+#section5 {
+  background-color: #f5f1e4 !important;
+  color: black !important;
+  padding-top: 100px;
+}
+
+#section2 p {
   margin-bottom: 50px;
+}
+
+#section5 p {
+  color: black;
 }
 
 #mapDiv {
@@ -32,7 +42,10 @@
 
 
 #flowSelector, #metricSelector {
-  width: 30%;
+  width: 40%;
+  height: 30px;
+  font-size: 14px;
+  color: black;
   border-color: #343a40;
 }
 
@@ -46,6 +59,10 @@
   background: rgba(114,47,55,0.5);
   border-radius: 8px;
   color: black !important;
+}
+
+.toolTip h5 {
+  font-size: 18px;
 }
 
 #toolTip {
@@ -80,6 +97,7 @@ p {
   margin: 5px;
   padding: 5px;
   background-color: lightgrey;
+  color: black;
   text-align: center;
 }
 
@@ -443,25 +461,28 @@ Vertical navigation
   .cd-vertical-nav a.active::before, .no-touch .cd-vertical-nav a:hover::before {
     background-color: #c0a672;
   }
+
+
   .cd-vertical-nav li:first-of-type a::after {
     /* change icon using image sprites */
-    background-position: 0px -48px;
+    background-position: 0px -64px;
     /* fix bug with transitions - set scale(0.01) rather than scale(0) */
-    -webkit-transform: translateX(-50%) translateY(4.5em) scale(0.01);
-    -moz-transform: translateX(-50%) translateY(4.5em) scale(0.01);
-    -ms-transform: translateX(-50%) translateY(4.5em) scale(0.01);
-    -o-transform: translateX(-50%) translateY(4.5em) scale(0.01);
-    transform: translateX(-50%) translateY(4.5em) scale(0.01);
+    -webkit-transform: translateX(-50%) translateY(3em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(3em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(3em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(3em) scale(0.01);
+    transform: translateX(-50%) translateY(3em) scale(0.01);
   }
   .cd-vertical-nav li:first-of-type a::before {
-    -webkit-transform: translateX(-50%) translateY(4.5em) scale(0.25);
-    -moz-transform: translateX(-50%) translateY(4.5em) scale(0.25);
-    -ms-transform: translateX(-50%) translateY(4.5em) scale(0.25);
-    -o-transform: translateX(-50%) translateY(4.5em) scale(0.25);
-    transform: translateX(-50%) translateY(4.5em) scale(0.25);
+    -webkit-transform: translateX(-50%) translateY(3em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(3em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(3em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(3em) scale(0.25);
+    transform: translateX(-50%) translateY(3em) scale(0.25);
   }
+
   .cd-vertical-nav li:nth-of-type(2) a::after {
-    background-position: 0px -32px;
+    background-position: 0px -48px;
     -webkit-transform: translateX(-50%) translateY(1.5em) scale(0.01);
     -moz-transform: translateX(-50%) translateY(1.5em) scale(0.01);
     -ms-transform: translateX(-50%) translateY(1.5em) scale(0.01);
@@ -475,7 +496,24 @@ Vertical navigation
     -o-transform: translateX(-50%) translateY(1.5em) scale(0.25);
     transform: translateX(-50%) translateY(1.5em) scale(0.25);
   }
+
   .cd-vertical-nav li:nth-of-type(3) a::after {
+    background-position: 0px -32px;
+    -webkit-transform: translateX(-50%) translateY(0em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(0em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(0em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(0em) scale(0.01);
+    transform: translateX(-50%) translateY(0em) scale(0.01);
+  }
+  .cd-vertical-nav li:nth-of-type(3) a::before {
+    -webkit-transform: translateX(-50%) translateY(0em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(0em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(0em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(0em) scale(0.25);
+    transform: translateX(-50%) translateY(0em) scale(0.25);
+  }
+
+  .cd-vertical-nav li:nth-of-type(4) a::after {
     background-position: 0px -16px;
     -webkit-transform: translateX(-50%) translateY(-1.5em) scale(0.01);
     -moz-transform: translateX(-50%) translateY(-1.5em) scale(0.01);
@@ -483,28 +521,30 @@ Vertical navigation
     -o-transform: translateX(-50%) translateY(-1.5em) scale(0.01);
     transform: translateX(-50%) translateY(-1.5em) scale(0.01);
   }
-  .cd-vertical-nav li:nth-of-type(3) a::before {
+  .cd-vertical-nav li:nth-of-type(4) a::before {
     -webkit-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
     -moz-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
     -ms-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
     -o-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
     transform: translateX(-50%) translateY(-1.5em) scale(0.25);
   }
-  .cd-vertical-nav li:nth-of-type(4) a::after {
+
+  .cd-vertical-nav li:nth-of-type(5) a::after {
     background-position: 0px 0px;
-    -webkit-transform: translateX(-50%) translateY(-4.5em) scale(0.01);
-    -moz-transform: translateX(-50%) translateY(-4.5em) scale(0.01);
-    -ms-transform: translateX(-50%) translateY(-4.5em) scale(0.01);
-    -o-transform: translateX(-50%) translateY(-4.5em) scale(0.01);
-    transform: translateX(-50%) translateY(-4.5em) scale(0.01);
+    -webkit-transform: translateX(-50%) translateY(-3em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(-3em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(-3em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(-3em) scale(0.01);
+    transform: translateX(-50%) translateY(-3em) scale(0.01);
   }
-  .cd-vertical-nav li:nth-of-type(4) a::before {
-    -webkit-transform: translateX(-50%) translateY(-4.5em) scale(0.25);
-    -moz-transform: translateX(-50%) translateY(-4.5em) scale(0.25);
-    -ms-transform: translateX(-50%) translateY(-4.5em) scale(0.25);
-    -o-transform: translateX(-50%) translateY(-4.5em) scale(0.25);
-    transform: translateX(-50%) translateY(-4.5em) scale(0.25);
+  .cd-vertical-nav li:nth-of-type(5) a::before {
+    -webkit-transform: translateX(-50%) translateY(-3em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(-3em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(-3em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(-3em) scale(0.25);
+    transform: translateX(-50%) translateY(-3em) scale(0.25);
   }
+
   .cd-vertical-nav .label {
     display: block;
     /* Force Hardware Acceleration */

@@ -146,7 +146,8 @@ class BubbleVis {
                         variety: variety[0],
                         numberWines: variety[1].length,
                         varietyFrequency: variety[1].length / totalWinesPerTier,
-                        avgPrice: d3.mean(variety[1], d=> d.price)
+                        avgPrice: d3.mean(variety[1], d=> d.price),
+                        avgQuality: d3.mean(variety[1], d=> d.points)
                     }
                 )
             })
@@ -205,11 +206,12 @@ class BubbleVis {
                     .style("top", event.pageY + "px")
                     .html(`
                      <div id="toolTip">
-                         <h5>${d.variety}<h4>
+                         <h5>${d.variety}<h5>
                          <p> 
                             Price Tier: ${d.tier}<br>
                             Variety Frequency: ${d3.format(".2%")(d.varietyFrequency)}<br>
-                            Avg price: ${d3.format("$.2f")(d.avgPrice)}
+                            Avg price: ${d3.format("$.2f")(d.avgPrice)}<br>
+                            Avg quality score: ${d3.format(".2f")(d.avgQuality)}
                          </p>    
                      </div>`);
             })

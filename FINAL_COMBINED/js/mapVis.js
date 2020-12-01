@@ -54,10 +54,10 @@ class MapVis {
       //  console.log('vis.world', vis.world)
 
         // draw countries
-        vis.countries = vis.svg.selectAll(".country")
+        vis.countries = vis.svg.selectAll(".map-country")
             .data(vis.world)
             .enter().append("path")
-            .attr('class', 'country')
+            .attr('class', 'map-country')
             .attr("d", vis.path)
             .style("stroke", "black")
             .style("fill", "grey")

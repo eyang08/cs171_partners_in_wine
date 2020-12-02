@@ -20,58 +20,6 @@ class RadarVis {
     vis.w = $(vis.parentElement).width() -200;
     vis.h = $(vis.parentElement).width() -200;
 
-    /*let colorscale = d3.scale.category10();
-
-//Legend titlesl
-    let LegendOptions = ['Quality: 3','Quality: 4','Quality: 5', 'Quality: 6', 'Quality: 7', 'Quality: 8'];
-
-
-      let svg = d3.select('#body')
-          .selectAll('svg')
-          .append('svg')
-          .attr("width", vis.w+300)
-          .attr("height", vis.h)
-
-//Create the title for the legend
-      let text = svg.append("text")
-          .attr("class", "title")
-          .attr('transform', 'translate(90,0)')
-          .attr("x", w - 70)
-          .attr("y", 10)
-          .attr("font-size", "12px")
-          .attr("fill", "#404040")
-          .text("What % of owners use a specific service in a week");
-
-      //Initiate Legend
-      let legend = svg.append("g")
-          .attr("class", "legend")
-          .attr("height", 100)
-          .attr("width", 200)
-          .attr('transform', 'translate(90,20)')
-      ;
-//Create colour squares
-      legend.selectAll('rect')
-          .data(LegendOptions)
-          .enter()
-          .append("rect")
-          .attr("x", w - 65)
-          .attr("y", function(d, i){ return i * 20;})
-          .attr("width", 10)
-          .attr("height", 10)
-          .style("fill", function(d, i){ return colorscale(i);})
-      ;
-//Create text next to squares
-      legend.selectAll('text')
-          .data(LegendOptions)
-          .enter()
-          .append("text")
-          .attr("x", w - 52)
-          .attr("y", function(d, i){ return i * 20 + 9;})
-          .attr("font-size", "11px")
-          .attr("fill", "#737373")
-          .text(function(d) { return d; })
-      ;*/
-
 
 
       vis.wrangleData()
@@ -99,7 +47,26 @@ wrangleData(){
   vis.wines7 = vis.data.filter((wine => wine.quality == 7));
   vis.wines8 = vis.data.filter((wine => wine.quality == 8));
 
-  vis.wines = [vis.wines3, vis.wines4, vis.wines5, vis.wines6, vis.wines7, vis.wines8];
+    vis.wines = [];
+
+    if (document.getElementById("quality3").checked == true){
+        vis.wines.push(vis.wines3)
+    }
+    if (document.getElementById("quality4").checked == true){
+        vis.wines.push(vis.wines4)
+    }
+    if (document.getElementById("quality5").checked == true){
+        vis.wines.push(vis.wines5)
+    }
+    if (document.getElementById("quality6").checked == true){
+        vis.wines.push(vis.wines6)
+    }
+    if (document.getElementById("quality7").checked == true){
+        vis.wines.push(vis.wines7)
+    }
+    if (document.getElementById("quality8").checked == true){
+        vis.wines.push(vis.wines8)
+    }
 
   vis.qualityData =[];
 
@@ -130,9 +97,12 @@ wrangleData(){
       })
   })
 
-    console.log(vis.qualityData)
+    vis.finalData= [];
 
-    vis.finalData = [[],[],[],[],[],[]];
+    vis.wines.forEach(winedata => {
+        vis.finalData.push([])
+        }
+    )
 
     let i = 0;
     vis.qualityData.forEach(wine => {
@@ -183,10 +153,10 @@ wrangleData(){
 updateVis () {
   let vis = this;
 
-  vis.color = "crimson"
+  vis.color = d3.scaleOrdinal(d3.schemeReds[6]);
 
   if (vis.data == whiteWine){
-      vis.color = "darksalmon"
+      vis.color = d3.scaleOrdinal(d3.schemeGreens[6]);
   }
 
 

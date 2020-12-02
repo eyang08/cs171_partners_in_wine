@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8257e6b0-37e0-468a-aee0-d05bbc1f47b9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../radar_plots_hannah/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../radar_plots_hannah/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../radar_plots_hannah/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/css/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/img/IMG_5213.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/img/cd-arrow-bottom.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/img/cd-nav-icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/img/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/img/radar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/img/wine grap vis.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/js/jquery-2.1.4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/js/modernizr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/partials/_layout.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/partials/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/partials/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webpage/scss/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../wineVariety_katie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../wineVariety_katie/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../winebubble_lizzy copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../winebubble_lizzy copy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../winemap_lizzy copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../winemap_lizzy copy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../wineweb_hannah copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../wineweb_hannah copy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../wineweb_hannah copy/js/RadarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../wineweb_hannah copy/js/RadarChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../wineweb_hannah copy/js/radarVis.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../wineweb_hannah copy/js/radarVis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../wineweb_lizzy copy/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../wineweb_lizzy copy/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../wineweb_lizzy copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../wineweb_lizzy copy/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1l6tfDEvT7UuGJliyNmXGOc4rML" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8257e6b0-37e0-468a-aee0-d05bbc1f47b9" name="Default Changelist" comment="" />
+      <created>1606929469878</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606929469878</updated>
+      <workItem from="1606929471111" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

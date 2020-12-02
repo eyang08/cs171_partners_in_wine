@@ -124,7 +124,7 @@ let RadarChart = {
                 .append("polygon")
                 .attr("class", "radar-chart-serie"+series)
                 .style("stroke-width", "2px")
-                .style("stroke", cfg.color)
+                .style("stroke", cfg.color(series))
                 .attr("points",function(d) {
                     var str="";
                     for(var pti=0;pti<d.length;pti++){
@@ -132,7 +132,7 @@ let RadarChart = {
                     }
                     return str;
                 })
-                .style("fill", cfg.color)
+                .style("fill", cfg.color(series))
                 .style("fill-opacity", cfg.opacityArea)
                 .on('mouseover', function (d){
                     z = "polygon."+d3.select(this).attr("class");
@@ -172,7 +172,7 @@ let RadarChart = {
                     return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
                 })
                 .attr("data-id", function(j){return j.axis})
-                .style("fill", cfg.color)
+                .style("fill", cfg.color(series))
                 .style("fill-opacity", .9)
                 .on('mouseover', function (d){
                     newX =  parseFloat(d3.select(this).attr('cx')) - 10;

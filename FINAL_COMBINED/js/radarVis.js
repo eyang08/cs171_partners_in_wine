@@ -5,12 +5,13 @@
 class RadarVis {
 
 
-  constructor(_parentElement, _data, _top, title) {
+  constructor(_parentElement, _data, _top, title, legendElement) {
     this.parentElement = _parentElement;
     this.data = _data;
     this.top = _top
     this.displayData = [];
-    this.title = title
+    this.title = title;
+    this.legendElement = legendElement
     this.initVis();
   }
 
@@ -19,6 +20,17 @@ class RadarVis {
 
     vis.w = $(vis.parentElement).width() -200;
     vis.h = $(vis.parentElement).width() -200;
+
+    vis.legendheight = $(vis.legendElement).height();
+    vis.legendwidth = $(vis.legendElement).width();
+
+    console.log(vis.legendElement)
+
+    vis.legendSvg = d3.select(vis.legendElement)
+        .append("svg")
+        .attr('class', 'legend')
+        .attr("width", vis.legendwidth)
+        .attr("height", vis.legendheight)
 
 
 
@@ -48,24 +60,31 @@ wrangleData(){
   vis.wines8 = vis.data.filter((wine => wine.quality == 8));
 
     vis.wines = [];
+    vis.legend =[]
 
     if (document.getElementById("quality3").checked == true){
         vis.wines.push(vis.wines3)
+        vis.legend.push(3)
     }
     if (document.getElementById("quality4").checked == true){
         vis.wines.push(vis.wines4)
+        vis.legend.push(4)
     }
     if (document.getElementById("quality5").checked == true){
         vis.wines.push(vis.wines5)
+        vis.legend.push(5)
     }
     if (document.getElementById("quality6").checked == true){
         vis.wines.push(vis.wines6)
+        vis.legend.push(6)
     }
     if (document.getElementById("quality7").checked == true){
         vis.wines.push(vis.wines7)
+        vis.legend.push(7)
     }
     if (document.getElementById("quality8").checked == true){
         vis.wines.push(vis.wines8)
+        vis.legend.push(8)
     }
 
   vis.qualityData =[];
@@ -159,8 +178,6 @@ updateVis () {
       vis.color = d3.scaleOrdinal(d3.schemeGreens[6]);
   }
 
-
-  console.log(vis.w)
   vis.mycfg = {
     w: vis.w,
     h: vis.h,
@@ -171,11 +188,40 @@ updateVis () {
       color: vis.color
   }
 
-  console.log(vis.finalData)
-//Call function to draw the Radar chart
-//Will expect that data is in %'s
+  //Call function to draw the Radar chart
   RadarChart.draw(vis.parentElement, vis.finalData, vis.mycfg);
+
+  //Add in the legend
+
+
+
+    vis.key = vis.legendSvg.selectAll(".legend")
+        .data(vis.legend)
+        .enter()
+
+    vis.keys = vis.key
+        .append("rect")
+        .merge(vis.key)
+        .attr("fill", function(d, i) {
+            return vis.color(i)
+        })
+        .attr("x", function(d, i) {
+            return i * vis.legendwidth/8 + 10;
+        } )
+        .attr("y", 0)
+        .attr("height", 10)
+        .attr("width", vis.legendwidth/8 );
+
+    vis.key.append("text")
+        .text(d=>d)
+        .attr('y', 30)
+        .attr("x", function(d, i) {
+        return i * vis.legendwidth/8 + 10 +5;
+    } )
+
 
 
 }
+
+
 };

@@ -219,7 +219,6 @@ let RadarChart = {
             .style("font-family", 'sans-serif')
             .style("font-size", "20px")
             .attr('class', 'title bar-title')
-            .attr('transform', `translate(${cfg.width / 2}, 0)`)
             .attr('text-anchor', 'middle')
     }
 };

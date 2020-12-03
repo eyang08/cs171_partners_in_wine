@@ -123,8 +123,8 @@ function initMainPage(dataArray) {
     redWine = dataArray[4]
     whiteWine = dataArray[5]
 
-    redWineVis = new RadarVis("#bottom-wine", redWine, false, "Red Wines")
-    whiteWineVis = new RadarVis("#top-wine", whiteWine, true, "White Wines")
+    redWineVis = new RadarVis("#bottom-wine", redWine, false, "Red Wines", "#red-legend")
+    whiteWineVis = new RadarVis("#top-wine", whiteWine, true, "White Wines", "#white-legend")
 
     // init word cloud
     myWordCloud = new WordCloud('wordcloudDiv', dataArray[6]);

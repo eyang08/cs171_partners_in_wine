@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e086ed5c-e2b9-4fca-9e19-e060bc7609e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/RadarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/RadarChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/mainMapBubble.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/mainMapBubble.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/radarVis.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/radarVis.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../radar_plots_hannah/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../radar_plots_hannah/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../radar_plots_hannah/js/main.js" beforeDir="false" />
@@ -124,7 +121,8 @@
       <workItem from="1606770267633" duration="187000" />
       <workItem from="1606850916931" duration="51000" />
       <workItem from="1606851101895" duration="5215000" />
-      <workItem from="1606929490285" duration="7501000" />
+      <workItem from="1606929490285" duration="7837000" />
+      <workItem from="1607013242820" duration="748000" />
     </task>
     <servers />
   </component>
@@ -156,5 +154,9 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2034" y="265" width="615" height="548" key="find.popup/0.23.1440.831/1440.23.1920.1057@1440.23.1920.1057" timestamp="1606580486340" />
+    <state x="1854" y="288" width="670" height="676" key="search.everywhere.popup" timestamp="1607013276793">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state x="1854" y="288" width="670" height="676" key="search.everywhere.popup/0.23.1440.832/1440.23.1920.1057@1440.23.1920.1057" timestamp="1607013276793" />
   </component>
 </project>

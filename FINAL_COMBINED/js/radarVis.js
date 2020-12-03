@@ -60,7 +60,7 @@ wrangleData(){
   vis.wines8 = vis.data.filter((wine => wine.quality == 8));
 
     vis.wines = [];
-    vis.legend =[]
+    vis.legend =[];
 
     if (document.getElementById("quality3").checked == true){
         vis.wines.push(vis.wines3)
@@ -196,11 +196,15 @@ updateVis () {
 
 
     vis.key = vis.legendSvg.selectAll(".legend")
-        .data(vis.legend)
-        .enter()
+        .data(vis.legend);
 
-    vis.keys = vis.key
+    vis.keylabels = vis.legendSvg.selectAll(".legendtext")
+        .data(vis.legend);
+
+    vis.key.enter()
+        .append( "g")
         .append("rect")
+        .attr("class", "legend")
         .merge(vis.key)
         .attr("fill", function(d, i) {
             return vis.color(i)
@@ -212,14 +216,24 @@ updateVis () {
         .attr("height", 10)
         .attr("width", vis.legendwidth/8 );
 
-    vis.key.append("text")
-        .text(d=>d)
+    vis.key.exit().remove();
+
+    console.log(vis.legend)
+
+    vis.keylabels.enter()
+        .append("g")
+        .append("text")
+        .attr("class", "legendtext")
+        .text(d =>{
+            return d
+        }
+            )
         .attr('y', 30)
         .attr("x", function(d, i) {
         return i * vis.legendwidth/8 + 10 +5;
-    } )
+    } );
 
-
+    vis.keylabels.exit().remove();
 
 }
 

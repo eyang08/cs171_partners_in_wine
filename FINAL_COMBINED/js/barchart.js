@@ -5,9 +5,9 @@
 
 class BarChart {
 
-    constructor(parentElement, wordData) {
+    constructor(parentElement, reccsData) {
         this.parentElement = parentElement;
-        this.wordData = wordData;
+        this.reccsData = reccsData;
         this.displayData = [];
 
         this.initVis()
@@ -96,7 +96,7 @@ class BarChart {
         vis.displayData = [];
         vis.topTenData = [];
         console.log(selectedVariety)
-        vis.displayData = vis.wordData.filter(function (d) {return d.variety == selectedVariety})
+        vis.displayData = vis.reccsData.filter(function (d) {return d.variety == selectedVariety})
         vis.displayData.sort((a,b) => {return b['points'] - a['points']})
         vis.topTenData = vis.displayData.slice(0, 10)
         console.log(vis.topTenData)
@@ -156,21 +156,45 @@ class BarChart {
 
         bars.exit().remove();
 
-        let labelsName = vis.svg.selectAll(".label-name")
-            .data(vis.topTenData)
+        function wrap(text, width) {
+            text.each(function() {
+                var text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    word,
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = 1.1, // ems
+                    y = text.attr("y"),
+                    dy = parseFloat(text.attr("dy")),
+                    tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                    }
+                }
+            });
+        }
 
-        labelsName.enter().append("text")
-            .attr("class", "label-name")
-            .merge(labelsName)
-            .text(d => d.winery)
-            .attr("x", (d, i) => vis.width/10*i-vis.width/20)
-            .attr("y", vis.height/1.6)
-            .attr("dy", "0em")
-            .attr("font-family", "sans-serif")
-            .attr("text-anchor", "middle")
-            .attr("font-size", "8px")
-
-        labelsName.exit().remove()
+        // let labelsName = vis.svg.selectAll(".label-name")
+        //     .data(vis.topTenData)
+        //
+        // labelsName.enter().append("text")
+        //     .attr("class", "label-name")
+        //     .merge(labelsName)
+        //     .text(d => d.winery)
+        //     .attr("x", (d, i) => vis.width/10*(i+1)-vis.width/20)
+        //     .attr("y", vis.height/1.6)
+        //     .attr("dy", "0em")
+        //     .attr("font-family", "sans-serif")
+        //     .attr("text-anchor", "middle")
+        //     .attr("font-size", "10px")
+        //
+        // labelsName.exit().remove()
 
         let labelsYear = vis.svg.selectAll(".label-year")
             .data(vis.topTenData)
@@ -178,13 +202,13 @@ class BarChart {
         labelsYear.enter().append("text")
             .attr("class", "label-year")
             .merge(labelsYear)
-            .text(d => d.year)
-            .attr("x", (d, i) => vis.width/10*i-vis.width/20)
+            .text(d => "$" + d.price)
+            .attr("x", (d, i) => vis.width/10*(i+1)-vis.width/20)
             .attr("y", vis.height/1.6)
             .attr("dy", "1em")
             .attr("font-family", "sans-serif")
             .attr("text-anchor", "middle")
-            .attr("font-size", "8px")
+            .attr("font-size", "12px")
 
         labelsYear.exit().remove()
         // Update the y-axis

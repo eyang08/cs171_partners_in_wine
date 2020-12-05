@@ -210,30 +210,30 @@
 <section id="section4" class="cd-section">
 	<div class="container-fluid">
 		<h2>DISCOVER WINE VARIETIES</h2>
-		<div class="container-fluid" style="height: 150vh; padding-top: 1vh">
-			<div class="row">
-				<div class="col-2">
-					<p>Select a Wine Variety:</p>
-				</div>
-				<div class="col-4">
-					<div class="row" style="height: 100%">
-						<select id='categorySelector' class="custom-select align-self-center" style="width: 80%" onchange="varietyChange()">
-							<option value="Pinot Noir" selected>Pinot Noir</option>
-							<option value="Chardonnay">Chardonnay</option>
-							<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
-							<option value="Bordeaux-style Red Blend">Bordeaux-style Red</option>
-							<option value="Riesling">Riesling</option>
-							<option value="Sauvignon Blanc">Sauvignon Blanc</option>
-							<option value="Syrah">Syrah</option>
-							<option value="Rosé">Rosé</option>
-							<option value="Merlot">Merlot</option>
-							<option value="Nebbiolo">Nebbiolo</option>
-							<option value="Zinfandel">Zinfandel</option>
-						</select>
-					</div>
-				</div>
+		<div class="row" style="width:100%; font-size: 10px">
+			<p>The hundreds of wine varieties available on the market can be overwhelming for a wine novice. This dashboard is designed to give a quick introduction to the top 12 most popular wines. A wordcloud of the most common descriptive words used by wine reviewers for a selected wine variety will help you quickly identify what a wine variety tastes like without having to try it</p>
+			<p>You can learn more about where the wine is produced, as well as an average price and rating from experts. Lastly, you can view experts' reccommendations, or the top wines by rating and by value (rating/price). </p>
+		</div>
+		<div class="container-fluid" style="height: 150vh;">
+			<div class="row justify-content-start align-items-center" style="width:75%;padding-left: 1vh; padding-right: 1vh; padding-top: 2vh">
+				<form class="form-inline">
+					<label for="categorySelector" class="col-form-label" style="margin-right:10px">Select one of the top 12 most popular wine varieties:</label>
+					<select id='categorySelector' class="custom-select align-self-center" style=font-size:12px;" onchange="varietyChange()">
+						<option value="Pinot Noir" selected>Pinot Noir</option>
+						<option value="Chardonnay">Chardonnay</option>
+						<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+						<option value="Bordeaux-style Red Blend">Bordeaux-style Red</option>
+						<option value="Riesling">Riesling</option>
+						<option value="Sauvignon Blanc">Sauvignon Blanc</option>
+						<option value="Syrah">Syrah</option>
+						<option value="Rosé">Rosé</option>
+						<option value="Merlot">Merlot</option>
+						<option value="Nebbiolo">Nebbiolo</option>
+						<option value="Zinfandel">Zinfandel</option>
+					</select>
+				</form>
 			</div>
-			<div class="row" style="height: 150vh; padding-top: 0; padding-left: 1vh; padding-right: 1vh;">
+			<div class="row" style="height: 150vh; padding-top:2vh; padding-left: 1vh; padding-right: 1vh;">
 				<div class="col">
 					<div class="row" style="border: thin solid rgba(211,211,211,0.73); border-radius: 5px; background: rgba(214,226,233,0.42)">
 						<div class="col-6 justify-content-center" style="height: 100%">
@@ -251,11 +251,11 @@
 										</thead>
 										<tbody class="justify-content-center">
 										<tr>
-											<td>Average Price</td>
+											<td>Average Price (in US Dollars)</td>
 											<td id="price"></td>
 										</tr>
 										<tr>
-											<td>Average Rating</td>
+											<td>Average Rating (out of 100)</td>
 											<td id="rating"></td>
 										</tr>
 										</tbody>

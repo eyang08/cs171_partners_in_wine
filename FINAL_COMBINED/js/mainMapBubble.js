@@ -51,7 +51,24 @@ var rowConverter2 = function(d) {
 var rowConverter3 = function(d) {
     return {
         country: d.country,
-        total: parseFloat(d.n)
+        percent: parseFloat(d.percent),
+        variety: d.variety
+    };
+}
+
+var rowConverter4 = function(d) {
+    return {
+        variety: d.variety,
+        country: d.country,
+        points: parseFloat(d.points),
+        price: parseFloat(d.price),
+        province: d.province,
+        region: d["region_1"],
+        title: d.title,
+        winery: d.winery,
+        value: parseFloat(d.value),
+        description: d.description,
+        taster: d["taster_name"]
     };
 }
 
@@ -67,7 +84,8 @@ let promises = [
     d3.csv("data/winemag_count.csv", rowConverter), //6
     d3.csv("data/winemag_variety.csv", rowConverter2), //7
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json"), //8
-    d3.csv("data/winemag_country.csv", rowConverter3) //9
+    d3.csv("data/winemag_country.csv", rowConverter3), //9
+    d3.csv("data/winemag_reccs.csv", rowConverter4) //10
 ];
 
 Promise.all(promises)
@@ -129,11 +147,11 @@ function initMainPage(dataArray) {
     // init word cloud
     myWordCloud = new WordCloud('wordcloudDiv', dataArray[6]);
 
-    // init piechart
+    // init map chart
     myPieChart = new PieChart('pieDiv', dataArray[6], dataArray[7], dataArray[8], dataArray[9]);
 
-    // init piechart
-    myBarChart = new BarChart('barDiv', dataArray[6]);
+    // init barchart
+    myBarChart = new BarChart('barDiv', dataArray[10]);
 
 }
 

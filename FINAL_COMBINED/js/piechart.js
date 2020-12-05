@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * *
-*         PieChart         *
+*         MapVis         *
 * * * * * * * * * * * * * */
 
 
@@ -23,7 +23,7 @@ class PieChart {
         let vis = this;
 
         // margin conventions
-        vis.margin = {top: 10, right: 50, bottom: 10, left: 50};
+        vis.margin = {top: 50, right: 50, bottom: 10, left: 50};
         vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
 
@@ -33,6 +33,14 @@ class PieChart {
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
             .append("g")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+
+        // add title
+        vis.svg.append('g')
+            .attr('class', 'title bar-title')
+            .append('text')
+            .text("Where it's Made")
+            .attr('transform', `translate(${vis.width / 2}, -20)`)
+            .attr('text-anchor', 'middle');
 
         // create a projection
         vis.projection = d3.geoOrthographic() // d3.geoStereographic()
@@ -117,6 +125,19 @@ class PieChart {
         document.getElementById("price").innerHTML = priceSum/sum;
         document.getElementById("rating").innerHTML = ratingSum/sum;
 
+        let tempCountryData = vis.countryData.filter(function (d) {return d.variety == selectedVariety})
+        console.log(tempCountryData)
+        vis.mapData = []
+        tempCountryData.forEach(row => {
+            vis.mapData[row.country] =
+                {
+                    country: row.country,
+                    percent: row.percent
+                }
+        })
+        console.log(vis.mapData)
+        console.log(vis.geoData)
+
         vis.updateVis()
 
 
@@ -130,12 +151,23 @@ class PieChart {
         console.log(percentFormatter(vis.displayData[0].percent))
         //add title
         vis.svg.selectAll(".percent").remove()
+
         vis.svg.append('g')
             .append('text')
             .attr("class", "percent")
-            .text(percentFormatter(vis.displayData[0].percent) + " grows in " + vis.displayData[0].location)
+            .text(percentFormatter(vis.displayData[0].percent) + " of all " + selectedVariety + " wines are grown in " + vis.displayData[0].location)
             .attr('transform', `translate(${vis.width / 2}, 20)`)
             .attr('text-anchor', 'middle');
 
+        vis.color = d3.scaleLinear().range(["#fff", "#690013"])
+            .domain([0,1]);
+
+        // vis.countries
+        //     .style("fill", function (d) {
+        //         let value = d.properties.name;
+        //         if (vis.mapData.country == value) {
+        //             return vis.color(vis.mapData[value].percent);
+        //         }
+        //     })
     }
 }

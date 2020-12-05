@@ -35,7 +35,7 @@ class MapVis {
 
         // create projection
         vis.projection =  d3.geoNaturalEarth1()
-            .translate([vis.width / 2, vis.height / 2 + 30])
+            .translate([vis.width / 2 - 30, vis.height / 2 + 30])
             .scale(220)
 
         // geo generator

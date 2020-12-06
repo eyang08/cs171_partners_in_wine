@@ -223,7 +223,7 @@ updateVis () {
         .append("g")
         .append("text")
         .attr("class", "legend-text")
-        .style("color", "white")
+        .style("fill", "white")
         .text(d =>{
             return d
         }

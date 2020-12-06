@@ -218,8 +218,7 @@ updateVis () {
 
     vis.key.exit().remove();
 
-    console.log(vis.legend)
-
+    vis.keylabels.exit().remove();
     vis.keylabels.enter()
         .append("g")
         .append("text")
@@ -233,7 +232,7 @@ updateVis () {
         return i * vis.legendwidth/8 + 10 +5;
     } );
 
-    vis.keylabels.exit().remove();
+
 
 }
 

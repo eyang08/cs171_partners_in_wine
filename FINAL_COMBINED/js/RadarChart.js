@@ -74,6 +74,7 @@ let RadarChart = {
                 .attr("class", "legend")
                 .style("font-family", "sans-serif")
                 .style("font-size", "10px")
+                .style("color", "white")
                 .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
                 .attr("fill", "#737373")
                 .text(((j+1)*cfg.maxValue/cfg.levels));
@@ -101,6 +102,7 @@ let RadarChart = {
             .text(function(d){return d})
             .style("font-family", "sans-serif")
             .style("font-size", "11px")
+            .style("color", "white")
             .attr("text-anchor", "middle")
             .attr("dy", "1.5em")
             .attr("transform", function(d, i){return "translate(0, -10)"})
@@ -218,6 +220,7 @@ let RadarChart = {
             .text(cfg.title)
             .style("font-family", 'sans-serif')
             .style("font-size", "20px")
+            .style("color", "white")
             .attr('class', 'title bar-title')
             .attr('text-anchor', 'middle')
     }

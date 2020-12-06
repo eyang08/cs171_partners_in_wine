@@ -42,63 +42,36 @@ class PieChart {
             .attr('transform', `translate(${vis.width / 2}, -20)`)
             .attr('text-anchor', 'middle');
 
-        // create a projection
-        vis.projection = d3.geoOrthographic() // d3.geoStereographic()
-            .scale(100)
-            .translate([vis.width / 2, vis.height / 2])
+        // pie chart setup
+        vis.pieChartGroup = vis.svg
+            .append('g')
+            .attr('class', 'pie-chart')
+            .attr("transform", "translate(" + vis.width / 3 + "," + vis.height / 1.8 + ")");
 
-        // define a geo generator w/ predefined projection
-        vis.path = d3.geoPath()
-            .projection(vis.projection);
+        // define inner and outer radius
+        let outerRadius = vis.width / 3;
+        let innerRadius = 0;
 
-        // sphere
-        vis.svg.append("path")
-            .datum({type: "Sphere"})
-            .attr("class", "graticule")
-            .attr('fill', '#ADDEFF')
-            .attr("stroke","rgba(129,129,129,0.35)")
-            .attr("d", vis.path);
+        // Ordinal color scale (10 default colors)
+        vis.color = d3.scaleOrdinal().range(d3.schemeTableau10).domain([0.01,1])
 
-        // convert topojson into geojson
-        vis.world = topojson.feature(vis.geoData, vis.geoData.objects.countries).features
 
-        // draw countries
-        vis.countries = vis.svg.selectAll(".country")
-            .data(vis.world)
-            .enter().append("path")
-            .attr('class', 'pie-country')
-            .attr("d", vis.path)
+        // define pie layout
+        vis.pie = d3.pie()
+            .value(function(d){
+                return d.value
+            });
+
+        // set up your path generator
+        vis.arc = d3.arc()
+            .innerRadius(innerRadius)
+            .outerRadius(outerRadius);
 
         // append tooltip
         vis.tooltip = d3.select("body").append('div')
             .attr('class', "tooltip")
-            .attr('id', 'mapTooltip')
+            .attr('id', 'pieTooltip')
 
-        // Draggable feature
-        let m0,
-            o0;
-
-        vis.svg.call(
-            d3.drag()
-                .on("start", function (event) {
-
-                    let lastRotationParams = vis.projection.rotate();
-                    m0 = [event.x, event.y];
-                    o0 = [-lastRotationParams[0], -lastRotationParams[1]];
-                })
-                .on("drag", function (event) {
-                    if (m0) {
-                        let m1 = [event.x, event.y],
-                            o1 = [o0[0] + (m0[0] - m1[0]) / 4, o0[1] + (m1[1] - m0[1]) / 4];
-                        vis.projection.rotate([-o1[0], -o1[1]]);
-                    }
-
-                    // Update the map
-                    vis.path = d3.geoPath().projection(vis.projection);
-                    d3.selectAll(".pie-country").attr("d", vis.path)
-                    d3.selectAll(".graticule").attr("d", vis.path)
-                })
-        )
         // call next method in pipeline
         this.wrangleData();
     }
@@ -106,11 +79,8 @@ class PieChart {
     // wrangleData method
     wrangleData(){
         let vis = this
-        console.log("updating table")
-        vis.displayData = vis.varietyData.filter(function (d) {return d.variety == selectedVariety})
 
         let tempData = vis.wordData.filter(function (d) {return d.variety == selectedVariety})
-        console.log(tempData)
 
         let priceSum = 0;
         let ratingSum = 0;
@@ -126,17 +96,18 @@ class PieChart {
         document.getElementById("rating").innerHTML = ratingSum/sum;
 
         let tempCountryData = vis.countryData.filter(function (d) {return d.variety == selectedVariety})
-        console.log(tempCountryData)
-        vis.mapData = []
-        tempCountryData.forEach(row => {
-            vis.mapData[row.country] =
-                {
-                    country: row.country,
-                    percent: row.percent
-                }
+
+        vis.pieData = []
+        tempCountryData.forEach(d => {
+            vis.pieData.push({
+                country: d.country,
+                color: vis.color(d.percent),
+                value: d.percent
+            })
         })
-        console.log(vis.mapData)
-        console.log(vis.geoData)
+
+        vis.displayData = []
+        vis.displayData = vis.pieData.sort((a,b) => {return b['value'] - a['value']})
 
         vis.updateVis()
 
@@ -147,27 +118,88 @@ class PieChart {
     updateVis() {
         let vis = this;
         var percentFormatter = d3.format(".0%")
-        console.log(vis.displayData[0])
-        console.log(percentFormatter(vis.displayData[0].percent))
+
         //add title
         vis.svg.selectAll(".percent").remove()
 
         vis.svg.append('g')
             .append('text')
             .attr("class", "percent")
-            .text(percentFormatter(vis.displayData[0].percent) + " of all " + selectedVariety + " wines are grown in " + vis.displayData[0].location)
+            .text(percentFormatter(vis.displayData[0].value) + " of all " + selectedVariety + " wines are grown in " + vis.displayData[0].country)
             .attr('transform', `translate(${vis.width / 2}, 20)`)
             .attr('text-anchor', 'middle');
 
-        vis.color = d3.scaleLinear().range(["#fff", "#690013"])
-            .domain([0,1]);
+        // Draw arcs
+        // Bind data
+        let arcs = vis.pieChartGroup.selectAll(".arc")
+            .data(vis.pie(vis.pieData))
 
-        // vis.countries
-        //     .style("fill", function (d) {
-        //         let value = d.properties.name;
-        //         if (vis.mapData.country == value) {
-        //             return vis.color(vis.mapData[value].percent);
-        //         }
-        //     })
+        // Append paths
+        arcs.enter()
+            .append("path")
+            .merge(arcs)
+            .attr("d", vis.arc)
+            .attr("class", "arc")
+            .style("fill", d => d.data.color)
+            .on('mouseover', function(event, d){
+                d3.select(this)
+                    .attr('stroke-width', '2px')
+                    .attr('stroke', 'black')
+                    .attr('fill', 'rgba(173,222,255,0.62)');
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                     <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px; color: black">
+                         <h3>${d.data.country}<h3>
+                         <h4>${percentFormatter(d.data.value)}</h4>
+
+                     </div>`);
+            })
+            .on('mouseout', function(event, d){
+                d3.select(this)
+                    .attr('stroke-width', '0px')
+                    .style("fill", d => d.data.color)
+
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
+            });
+
+        arcs.exit().remove();
+
+        // Add one dot in the legend for each name.
+        let dots = vis.svg.selectAll(".mydots")
+            .data(vis.displayData)
+
+        dots.enter()
+            .append("circle")
+            .attr("class", "mydots")
+            .merge(dots)
+            .attr("cx", vis.width/1.25)
+            .attr("cy", function(d,i){ return 50 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+            .attr("r", 7)
+            .style("fill", d => d.color)
+
+        dots.exit().remove()
+
+        // Add one dot in the legend for each name.
+        let dotLabels= vis.svg.selectAll(".dotlabels")
+            .data(vis.displayData)
+
+        dotLabels.enter()
+            .append("text")
+            .attr("class", "dotlabels")
+            .merge(dotLabels)
+            .text(function(d){ return d.country})
+            .attr("x", vis.width/1.2)
+            .attr("y", function(d,i){ return 50 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+            .attr("text-anchor", "left")
+            .style("alignment-baseline", "middle")
+
+        dotLabels.exit().remove()
     }
 }

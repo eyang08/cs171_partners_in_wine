@@ -31,7 +31,7 @@ class BarChart {
         vis.svg.append('g')
             .attr('class', 'title bar-title')
             .append('text')
-            .text("Top Wines")
+            .text("Top Wines by Value (Rating/Price)")
             .attr('transform', `translate(${vis.width / 2}, -20)`)
             .attr('text-anchor', 'middle');
 
@@ -97,7 +97,7 @@ class BarChart {
         vis.topTenData = [];
         console.log(selectedVariety)
         vis.displayData = vis.reccsData.filter(function (d) {return d.variety == selectedVariety})
-        vis.displayData.sort((a,b) => {return b['points'] - a['points']})
+        vis.displayData.sort((a,b) => {return b['value'] - a['value']})
         vis.topTenData = vis.displayData.slice(0, 10)
         console.log(vis.topTenData)
         vis.updateVis()
@@ -128,12 +128,12 @@ class BarChart {
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
                     .html(`
-                     <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
+                     <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px; color: black">
                          <h4>${d.title}<h4>
-                         <p> Price: ${d.price}</p>
-                         <p> Rating: ${d.points}</p>
-                         <p> Region: ${d.region}</p>
-                         <p> Country: ${d.country}</p>
+                         <p> Price ($): ${d.price}</p>
+                         <p> Rating: ${d.points}/100</p>
+                         <p> Origin: ${d.province}, ${d.country}</p>
+                         <p> Description: ${d.description}</p>
                      </div>`);
             })
             .on('mouseout', function (event, d) {

@@ -22,6 +22,15 @@ library(tidyverse)
 
 x <- read.csv("data/winemag-data-130k-v2.csv")
 
+reccs = x[!duplicated(x$title),]
+
+reccs <- inner_join(reccs, variety_count, by="variety")
+
+reccs <- reccs %>%
+  mutate(value = points/price) %>%
+  na.omit(value)
+
+write.csv(x, 'data/winemag_reccs.csv')
 fix.contractions <- function(doc) {
   # "won't" is a special case as it does not expand to "wo not"
   doc <- gsub("won't", "will not", doc)
@@ -76,7 +85,7 @@ x_count <- x_filtered %>%
 variety_count <- x %>%
   count(variety) %>%
   arrange(desc(n)) %>%
-  slice(1:50) %>%
+  slice(1:12) %>%
   select(variety)
 
 data <- inner_join(variety_count, x_count, by="variety") %>%

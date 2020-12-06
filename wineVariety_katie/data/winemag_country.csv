@@ -1,267 +1,57 @@
-variety,country,n,percent
-Bordeaux-style Red Blend,Argentina,86,0.016104869
-Bordeaux-style Red Blend,Australia,29,0.005430712
-Bordeaux-style Red Blend,Austria,2,0.000374532
-Bordeaux-style Red Blend,Brazil,2,0.000374532
-Bordeaux-style Red Blend,Bulgaria,2,0.000374532
-Bordeaux-style Red Blend,Canada,15,0.002808989
-Bordeaux-style Red Blend,Chile,37,0.006928839
-Bordeaux-style Red Blend,Croatia,1,0.000187266
-Bordeaux-style Red Blend,France,3173,0.594194757
-Bordeaux-style Red Blend,Hungary,6,0.001123596
-Bordeaux-style Red Blend,Israel,40,0.007490637
-Bordeaux-style Red Blend,Italy,2,0.000374532
-Bordeaux-style Red Blend,Mexico,1,0.000187266
-Bordeaux-style Red Blend,Moldova,2,0.000374532
-Bordeaux-style Red Blend,New Zealand,24,0.004494382
-Bordeaux-style Red Blend,Portugal,5,0.00093633
-Bordeaux-style Red Blend,Slovenia,4,0.000749064
-Bordeaux-style Red Blend,South Africa,80,0.014981273
-Bordeaux-style Red Blend,Spain,9,0.001685393
-Bordeaux-style Red Blend,Turkey,3,0.000561798
-Bordeaux-style Red Blend,US,1817,0.340262172
-Cabernet Sauvignon,,2,0.000213083
-Cabernet Sauvignon,Argentina,536,0.057106329
-Cabernet Sauvignon,Australia,263,0.028020456
-Cabernet Sauvignon,Austria,5,0.000532708
-Cabernet Sauvignon,Brazil,4,0.000426167
-Cabernet Sauvignon,Bulgaria,20,0.002130833
-Cabernet Sauvignon,Canada,7,0.000745792
-Cabernet Sauvignon,Chile,764,0.081397827
-Cabernet Sauvignon,France,53,0.005646708
-Cabernet Sauvignon,Greece,6,0.00063925
-Cabernet Sauvignon,Israel,99,0.010547624
-Cabernet Sauvignon,Italy,118,0.012571916
-Cabernet Sauvignon,Mexico,8,0.000852333
-Cabernet Sauvignon,Moldova,8,0.000852333
-Cabernet Sauvignon,New Zealand,2,0.000213083
-Cabernet Sauvignon,Portugal,15,0.001598125
-Cabernet Sauvignon,Romania,16,0.001704667
-Cabernet Sauvignon,Slovenia,3,0.000319625
-Cabernet Sauvignon,South Africa,120,0.012784999
-Cabernet Sauvignon,Spain,52,0.005540166
-Cabernet Sauvignon,Turkey,2,0.000213083
-Cabernet Sauvignon,Ukraine,1,0.000106542
-Cabernet Sauvignon,Uruguay,2,0.000213083
-Cabernet Sauvignon,US,7280,0.775623269
-Chardonnay,,3,0.000270758
-Chardonnay,Argentina,289,0.026083032
-Chardonnay,Australia,395,0.035649819
-Chardonnay,Austria,54,0.004873646
-Chardonnay,Brazil,5,0.000451264
-Chardonnay,Bulgaria,16,0.001444043
-Chardonnay,Canada,26,0.00234657
-Chardonnay,Chile,510,0.046028881
-Chardonnay,England,16,0.001444043
-Chardonnay,France,2230,0.201263538
-Chardonnay,Germany,5,0.000451264
-Chardonnay,Greece,15,0.001353791
-Chardonnay,Hungary,1,9.03E-05
-Chardonnay,Israel,39,0.003519856
-Chardonnay,Italy,312,0.028158845
-Chardonnay,Lebanon,1,9.03E-05
-Chardonnay,Macedonia,1,9.03E-05
-Chardonnay,Mexico,9,0.000812274
-Chardonnay,Moldova,2,0.000180505
-Chardonnay,Morocco,3,0.000270758
-Chardonnay,New Zealand,109,0.009837545
-Chardonnay,Peru,1,9.03E-05
-Chardonnay,Portugal,17,0.001534296
-Chardonnay,Romania,12,0.001083032
-Chardonnay,Slovenia,3,0.000270758
-Chardonnay,South Africa,157,0.014169675
-Chardonnay,Spain,71,0.006407942
-Chardonnay,Turkey,1,9.03E-05
-Chardonnay,Ukraine,1,9.03E-05
-Chardonnay,Uruguay,3,0.000270758
-Chardonnay,US,6773,0.611281588
-Merlot,,1,0.000326584
-Merlot,Argentina,58,0.018941868
-Merlot,Australia,19,0.006205095
-Merlot,Austria,2,0.000653168
-Merlot,Brazil,7,0.002286088
-Merlot,Bulgaria,13,0.004245591
-Merlot,Canada,11,0.003592423
-Merlot,Chile,256,0.083605487
-Merlot,France,106,0.034617897
-Merlot,Greece,6,0.001959504
-Merlot,Hungary,1,0.000326584
-Merlot,Israel,38,0.012410189
-Merlot,Italy,138,0.045068583
-Merlot,Mexico,1,0.000326584
-Merlot,Moldova,2,0.000653168
-Merlot,New Zealand,9,0.002939255
-Merlot,Portugal,12,0.003919007
-Merlot,Romania,10,0.003265839
-Merlot,Slovenia,1,0.000326584
-Merlot,South Africa,51,0.016655781
-Merlot,Spain,15,0.004898759
-Merlot,Switzerland,1,0.000326584
-Merlot,Turkey,1,0.000326584
-Merlot,Ukraine,2,0.000653168
-Merlot,Uruguay,1,0.000326584
-Merlot,US,2300,0.751143044
-Nebbiolo,Argentina,4,0.001716002
-Nebbiolo,Italy,2265,0.971685972
-Nebbiolo,Mexico,6,0.002574003
-Nebbiolo,US,56,0.024024024
-Pinot Noir,,2,0.000156409
-Pinot Noir,Argentina,103,0.008055056
-Pinot Noir,Australia,127,0.009931962
-Pinot Noir,Austria,83,0.006490967
-Pinot Noir,Brazil,1,7.82E-05
-Pinot Noir,Bulgaria,15,0.001173066
-Pinot Noir,Canada,23,0.001798702
-Pinot Noir,Chile,358,0.027997185
-Pinot Noir,Croatia,1,7.82E-05
-Pinot Noir,England,7,0.000547431
-Pinot Noir,France,1576,0.123250176
-Pinot Noir,Germany,55,0.004301243
-Pinot Noir,Hungary,1,7.82E-05
-Pinot Noir,Israel,7,0.000547431
-Pinot Noir,Italy,6,0.000469227
-Pinot Noir,Macedonia,3,0.000234613
-Pinot Noir,New Zealand,485,0.037929147
-Pinot Noir,Portugal,15,0.001173066
-Pinot Noir,Romania,15,0.001173066
-Pinot Noir,Slovenia,5,0.000391022
-Pinot Noir,South Africa,23,0.001798702
-Pinot Noir,Spain,11,0.000860249
-Pinot Noir,Switzerland,3,0.000234613
-Pinot Noir,Uruguay,5,0.000391022
-Pinot Noir,US,9857,0.770861031
-Red Blend,,10,0.001179802
-Red Blend,Argentina,227,0.026781501
-Red Blend,Australia,66,0.007786692
-Red Blend,Austria,82,0.009674375
-Red Blend,Brazil,3,0.000353941
-Red Blend,Bulgaria,22,0.002595564
-Red Blend,Canada,5,0.000589901
-Red Blend,Chile,404,0.047663992
-Red Blend,Croatia,6,0.000707881
-Red Blend,Cyprus,3,0.000353941
-Red Blend,Czech Republic,2,0.00023596
-Red Blend,France,270,0.031854648
-Red Blend,Georgia,4,0.000471921
-Red Blend,Germany,8,0.000943841
-Red Blend,Greece,66,0.007786692
-Red Blend,Hungary,8,0.000943841
-Red Blend,Israel,72,0.008494573
-Red Blend,Italy,3263,0.384969325
-Red Blend,Lebanon,16,0.001887683
-Red Blend,Macedonia,1,0.00011798
-Red Blend,Mexico,14,0.001651723
-Red Blend,Moldova,11,0.001297782
-Red Blend,Morocco,8,0.000943841
-Red Blend,New Zealand,1,0.00011798
-Red Blend,Peru,4,0.000471921
-Red Blend,Portugal,7,0.000825861
-Red Blend,Romania,10,0.001179802
-Red Blend,Serbia,3,0.000353941
-Red Blend,Slovenia,4,0.000471921
-Red Blend,South Africa,81,0.009556395
-Red Blend,Spain,808,0.095327985
-Red Blend,Turkey,19,0.002241623
-Red Blend,Uruguay,20,0.002359604
-Red Blend,US,2948,0.347805569
-Riesling,,1,0.000201126
-Riesling,Argentina,2,0.000402253
-Riesling,Australia,147,0.029565567
-Riesling,Austria,492,0.098954143
-Riesling,Bulgaria,3,0.000603379
-Riesling,Canada,51,0.010257442
-Riesling,Chile,22,0.004424779
-Riesling,Czech Republic,1,0.000201126
-Riesling,France,648,0.130329847
-Riesling,Germany,1754,0.352775543
-Riesling,Israel,1,0.000201126
-Riesling,Italy,22,0.004424779
-Riesling,Luxembourg,2,0.000402253
-Riesling,Moldova,1,0.000201126
-Riesling,New Zealand,55,0.011061947
-Riesling,Portugal,3,0.000603379
-Riesling,Romania,4,0.000804505
-Riesling,Serbia,3,0.000603379
-Riesling,Slovakia,1,0.000201126
-Riesling,Slovenia,4,0.000804505
-Riesling,South Africa,8,0.00160901
-Riesling,Spain,1,0.000201126
-Riesling,Ukraine,1,0.000201126
-Riesling,US,1745,0.350965406
-Ros̩,,1,0.00030656
-Ros̩,Argentina,37,0.011342735
-Ros̩,Armenia,1,0.00030656
-Ros̩,Australia,28,0.008583691
-Ros̩,Austria,58,0.017780503
-Ros̩,Bulgaria,4,0.001226242
-Ros̩,Canada,3,0.000919681
-Ros̩,Chile,43,0.013182097
-Ros̩,Croatia,2,0.000613121
-Ros̩,France,1689,0.517780503
-Ros̩,Georgia,1,0.00030656
-Ros̩,Germany,11,0.003372164
-Ros̩,Greece,13,0.003985285
-Ros̩,Hungary,4,0.001226242
-Ros̩,Israel,11,0.003372164
-Ros̩,Italy,54,0.016554261
-Ros̩,Lebanon,5,0.001532802
-Ros̩,Mexico,2,0.000613121
-Ros̩,Moldova,1,0.00030656
-Ros̩,New Zealand,5,0.001532802
-Ros̩,Portugal,204,0.06253832
-Ros̩,Romania,1,0.00030656
-Ros̩,Slovenia,2,0.000613121
-Ros̩,South Africa,27,0.008277131
-Ros̩,Spain,148,0.045370938
-Ros̩,Turkey,3,0.000919681
-Ros̩,Ukraine,1,0.00030656
-Ros̩,Uruguay,3,0.000919681
-Ros̩,US,900,0.275904353
-Sauvignon Blanc,,3,0.000627221
-Sauvignon Blanc,Argentina,78,0.016307757
-Sauvignon Blanc,Australia,48,0.010035543
-Sauvignon Blanc,Austria,93,0.019443864
-Sauvignon Blanc,Bulgaria,12,0.002508886
-Sauvignon Blanc,Canada,10,0.002090738
-Sauvignon Blanc,Chile,675,0.141124817
-Sauvignon Blanc,Czech Republic,2,0.000418148
-Sauvignon Blanc,France,824,0.172276814
-Sauvignon Blanc,Greece,6,0.001254443
-Sauvignon Blanc,India,2,0.000418148
-Sauvignon Blanc,Israel,18,0.003763328
-Sauvignon Blanc,Italy,45,0.009408321
-Sauvignon Blanc,Mexico,7,0.001463517
-Sauvignon Blanc,Moldova,3,0.000627221
-Sauvignon Blanc,Morocco,5,0.001045369
-Sauvignon Blanc,New Zealand,541,0.113108927
-Sauvignon Blanc,Peru,1,0.000209074
-Sauvignon Blanc,Portugal,23,0.004808697
-Sauvignon Blanc,Romania,15,0.003136107
-Sauvignon Blanc,Slovenia,9,0.001881664
-Sauvignon Blanc,South Africa,174,0.036378842
-Sauvignon Blanc,Spain,33,0.006899436
-Sauvignon Blanc,Turkey,1,0.000209074
-Sauvignon Blanc,Uruguay,1,0.000209074
-Sauvignon Blanc,US,2154,0.450344972
-Syrah,Argentina,56,0.013705335
-Syrah,Australia,16,0.00391581
-Syrah,Austria,1,0.000244738
-Syrah,Bulgaria,3,0.000734214
-Syrah,Canada,14,0.003426334
-Syrah,Chile,270,0.066079295
-Syrah,France,160,0.039158101
-Syrah,Greece,5,0.001223691
-Syrah,Hungary,2,0.000489476
-Syrah,Israel,22,0.005384239
-Syrah,Italy,129,0.031571219
-Syrah,Mexico,1,0.000244738
-Syrah,Morocco,4,0.000978953
-Syrah,New Zealand,43,0.01052374
-Syrah,Peru,1,0.000244738
-Syrah,Portugal,39,0.009544787
-Syrah,South Africa,48,0.01174743
-Syrah,Spain,34,0.008321096
-Syrah,Turkey,6,0.001468429
-Syrah,US,3232,0.790993637
-Zinfandel,Australia,3,0.001107829
-Zinfandel,US,2705,0.998892171
+"","variety","country","count","percent_test","percent"
+"1","Pinot Noir","Macedonia",3,0.25,0.186961119455199
+"2","Pinot Noir","New Zealand",485,0.351959361393324,0.263210864835331
+"3","Pinot Noir","Romania",15,0.125,0.0934805597275995
+"4","Pinot Noir","Switzerland",3,0.428571428571429,0.320504776208912
+"5","Pinot Noir","US",9857,0.181645627936976,0.135842679772958
+"6","Chardonnay","Australia",395,0.172188317349608,0.21993449945868
+"7","Chardonnay","England",16,0.231884057971014,0.296183300977119
+"8","Chardonnay","France",2230,0.1254500450045,0.160236148885257
+"9","Chardonnay","Mexico",9,0.128571428571429,0.164223062416778
+"10","Chardonnay","US",6773,0.124813415645444,0.159422988262167
+"11","Cabernet Sauvignon","Argentina",536,0.142705005324814,0.179367005837775
+"12","Cabernet Sauvignon","Bulgaria",20,0.141843971631206,0.178284766043898
+"13","Cabernet Sauvignon","Chile",764,0.173007246376812,0.217454122931531
+"14","Cabernet Sauvignon","Israel",99,0.202453987730061,0.254465955951612
+"15","Cabernet Sauvignon","Moldova",8,0.135593220338983,0.170428149235184
+"16","Red Blend","Cyprus",3,0.272727272727273,0.179948586118252
+"17","Red Blend","Lebanon",16,0.457142857142857,0.301628106255356
+"18","Red Blend","Morocco",8,0.285714285714286,0.188517566409597
+"19","Red Blend","Peru",4,0.25,0.164952870608398
+"20","Red Blend","Serbia",3,0.25,0.164952870608398
+"21","Bordeaux-style Red Blend","Canada",15,0.0590551181102362,0.136947208186897
+"22","Bordeaux-style Red Blend","France",3173,0.178499099909991,0.413934544181533
+"23","Bordeaux-style Red Blend","Israel",40,0.081799591002045,0.189691020474284
+"24","Bordeaux-style Red Blend","Slovenia",4,0.05,0.115948636264906
+"25","Bordeaux-style Red Blend","South Africa",80,0.0618716163959783,0.143478590892382
+"26","Riesling","Canada",51,0.200787401574803,0.0768864632795789
+"27","Riesling","Germany",1754,0.827358490566038,0.316816033800082
+"28","Riesling","Luxembourg",2,0.333333333333333,0.127641579562177
+"29","Riesling","Serbia",3,0.25,0.0957311846716325
+"30","Riesling","Slovakia",1,1,0.38292473868653
+"31","Sauvignon Blanc","Chile",675,0.152853260869565,0.137345381458275
+"32","Sauvignon Blanc","Czech Republic",2,0.166666666666667,0.14975733444932
+"33","Sauvignon Blanc","India",2,0.222222222222222,0.199676445932426
+"34","Sauvignon Blanc","Morocco",5,0.178571428571429,0.160454286909985
+"35","Sauvignon Blanc","New Zealand",541,0.392597968069666,0.352766551249994
+"36","Syrah","Chile",270,0.0611413043478261,0.155684903567982
+"37","Syrah","Morocco",4,0.142857142857143,0.363759012781063
+"38","Syrah","Peru",1,0.0625,0.159144568091715
+"39","Syrah","Turkey",6,0.0666666666666667,0.169754205964496
+"40","Syrah","US",3232,0.059559568782825,0.151657309594744
+"41","Rosé","Armenia",1,0.5,0.587442164465085
+"42","Rosé","France",1689,0.0950157515751575,0.111632517527175
+"43","Rosé","Lebanon",5,0.142857142857143,0.167840618418596
+"44","Rosé","Portugal",204,0.0418461538461538,0.0491643903798471
+"45","Rosé","Ukraine",1,0.0714285714285714,0.0839203092092978
+"46","Merlot","Brazil",7,0.148936170212766,0.244084682440847
+"47","Merlot","Bulgaria",13,0.0921985815602837,0.151100041511
+"48","Merlot","Romania",10,0.0833333333333333,0.136571191365712
+"49","Merlot","Switzerland",1,0.142857142857143,0.23412204234122
+"50","Merlot","Ukraine",2,0.142857142857143,0.23412204234122
+"51","Nebbiolo","Argentina",4,0.00106496272630458,0.00480310176967393
+"52","Nebbiolo","Italy",2265,0.133912735012416,0.60396150835429
+"53","Nebbiolo","Mexico",6,0.0857142857142857,0.386581076719185
+"54","Nebbiolo","US",56,0.00103197272643509,0.00465431315685127
+"55","Zinfandel","Australia",3,0.0013077593722755,0.0255642805153528
+"56","Zinfandel","US",2705,0.0498479683036948,0.974435719484647

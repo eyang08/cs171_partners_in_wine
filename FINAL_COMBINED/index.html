@@ -19,11 +19,13 @@
 <body>
 <nav class="cd-vertical-nav">
 	<ul>
-		<li><a href="#section1" class="active"><span class="label">Intro</span></a></li>
+		<li><a href="#section1" class="active"><span class="label">Title</span></a></li>
+		<li><a href="#section1b"><span class="label">Intro</span></a></li>
 		<li><a href="#section2"><span class="label">Map</span></a></li>
 		<li><a href="#section3"><span class="label">Chemicals</span></a></li>
 		<li><a href="#section4"><span class="label">Descriptors</span></a></li>
 		<li><a href="#section5"><span class="label">Price</span></a></li>
+		<li><a href="#section6"><span class="label">Conclusion</span></a></li>
 	</ul>
 </nav><!-- .cd-vertical-nav -->
 
@@ -32,9 +34,16 @@
 <section id="section1" class="cd-section">
 	<div class="content-wrapper">
 		<h1>WINE <b>101</b></h1>
-		<a href="#section2" class="cd-scroll-down cd-image-replace">scroll down</a>
+<!--		<a href="#section2" class="cd-scroll-down cd-image-replace">scroll down</a>-->
 	</div>
 </section><!-- cd-section -->
+
+<section id="section1b" class="cd-section">
+	<div class="container-fluid">
+		Intro Here
+	</div>
+</section><!-- cd-section -->
+
 
 <section id="section2" class="cd-section">
 	<div class="container-fluid">
@@ -210,30 +219,30 @@
 <section id="section4" class="cd-section">
 	<div class="container-fluid">
 		<h2>DISCOVER WINE VARIETIES</h2>
-		<div class="container-fluid" style="height: 150vh; padding-top: 1vh">
-			<div class="row">
-				<div class="col-2">
-					<p>Select a Wine Variety:</p>
-				</div>
-				<div class="col-4">
-					<div class="row" style="height: 100%">
-						<select id='categorySelector' class="custom-select align-self-center" style="width: 80%" onchange="varietyChange()">
-							<option value="Pinot Noir" selected>Pinot Noir</option>
-							<option value="Chardonnay">Chardonnay</option>
-							<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
-							<option value="Bordeaux-style Red Blend">Bordeaux-style Red</option>
-							<option value="Riesling">Riesling</option>
-							<option value="Sauvignon Blanc">Sauvignon Blanc</option>
-							<option value="Syrah">Syrah</option>
-							<option value="Rosé">Rosé</option>
-							<option value="Merlot">Merlot</option>
-							<option value="Nebbiolo">Nebbiolo</option>
-							<option value="Zinfandel">Zinfandel</option>
-						</select>
-					</div>
-				</div>
+		<div class="row" style="width:100%; font-size: 10px">
+			<p>The hundreds of wine varieties available on the market can be overwhelming for a wine novice. This dashboard is designed to give a quick introduction to the top 12 most popular wines. A wordcloud of the most common descriptive words used by wine reviewers for a selected wine variety will help you quickly identify what a wine variety tastes like without having to try it</p>
+			<p>You can learn more about where the wine is produced, as well as an average price and rating from experts. Lastly, you can view experts' reccommendations, or the top wines by rating and by value (rating/price). </p>
+		</div>
+		<div class="container-fluid" style="height: 150vh;">
+			<div class="row justify-content-start align-items-center" style="width:75%;padding-left: 1vh; padding-right: 1vh; padding-top: 2vh">
+				<form class="form-inline">
+					<label for="categorySelector" class="col-form-label" style="margin-right:10px">Select one of the top 12 most popular wine varieties:</label>
+					<select id='categorySelector' class="custom-select align-self-center" style=font-size:12px;" onchange="varietyChange()">
+						<option value="Pinot Noir" selected>Pinot Noir</option>
+						<option value="Chardonnay">Chardonnay</option>
+						<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+						<option value="Bordeaux-style Red Blend">Bordeaux-style Red</option>
+						<option value="Riesling">Riesling</option>
+						<option value="Sauvignon Blanc">Sauvignon Blanc</option>
+						<option value="Syrah">Syrah</option>
+						<option value="Rosé">Rosé</option>
+						<option value="Merlot">Merlot</option>
+						<option value="Nebbiolo">Nebbiolo</option>
+						<option value="Zinfandel">Zinfandel</option>
+					</select>
+				</form>
 			</div>
-			<div class="row" style="height: 150vh; padding-top: 0; padding-left: 1vh; padding-right: 1vh;">
+			<div class="row" style="height: 150vh; padding-top:2vh; padding-left: 1vh; padding-right: 1vh;">
 				<div class="col">
 					<div class="row" style="border: thin solid rgba(211,211,211,0.73); border-radius: 5px; background: rgba(214,226,233,0.42)">
 						<div class="col-6 justify-content-center" style="height: 100%">
@@ -251,11 +260,11 @@
 										</thead>
 										<tbody class="justify-content-center">
 										<tr>
-											<td>Average Price</td>
+											<td>Average Price (in US Dollars)</td>
 											<td id="price"></td>
 										</tr>
 										<tr>
-											<td>Average Rating</td>
+											<td>Average Rating (out of 100)</td>
 											<td id="rating"></td>
 										</tr>
 										</tbody>
@@ -278,7 +287,7 @@
 		<h2>WINE BY PRICE TIER</h2>
 		<p>A great number of wine varieties can be enjoyed, no matter your budget.
 			The top 20 most prevalent varieties within each price tier are clustered together, sized by their prevalence.
-			Hover over each grape to see each variety’s average price, within the price tier.
+			Hover over each grape to see each variety’s average price and quality, within the price tier.
 		</p>
 		<div class="row justify-content-center">
 			<div id="bubbleDiv"></div>
@@ -286,6 +295,13 @@
 
 	</div>
 </section><!-- cd-section -->
+
+<section id="section6" class="cd-section">
+	<div class="container-fluid">
+		Conclusion Here
+	</div>
+</section><!-- cd-section -->
+
 	
 <script src="js/jquery-2.1.4.js"></script>
 <script src="webpage/js/main.js"></script> <!-- Resource jQuery -->

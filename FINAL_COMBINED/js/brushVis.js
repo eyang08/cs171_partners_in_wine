@@ -44,7 +44,7 @@ class BrushVis {
 
         // add title
         vis.title = vis.svg.append('g')
-            .attr('class', 'title')
+            .attr('class', 'title brush-title')
             .append('text')
             .text('Trade Over Time')
             .attr('transform', `translate(${vis.width / 2}, 0)`)

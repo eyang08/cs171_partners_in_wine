@@ -19,7 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92b9f964-7f9c-4c47-a62c-2281ddc84b85" name="Default Changelist" comment="Added variety dashboard to webpage" />
+    <list default="true" id="92b9f964-7f9c-4c47-a62c-2281ddc84b85" name="Default Changelist" comment="Add new js files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FINAL_COMBINED/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FINAL_COMBINED/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FINAL_COMBINED/js/barchart.js" beforeDir="false" afterPath="$PROJECT_DIR$/FINAL_COMBINED/js/barchart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FINAL_COMBINED/js/mainMapBubble.js" beforeDir="false" afterPath="$PROJECT_DIR$/FINAL_COMBINED/js/mainMapBubble.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FINAL_COMBINED/js/piechart.js" beforeDir="false" afterPath="$PROJECT_DIR$/FINAL_COMBINED/js/piechart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FINAL_COMBINED/js/wordcloud.js" beforeDir="false" afterPath="$PROJECT_DIR$/FINAL_COMBINED/js/wordcloud.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wineVariety_katie/data/winemag_country.csv" beforeDir="false" afterPath="$PROJECT_DIR$/wineVariety_katie/data/winemag_country.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wineweb_hannah copy/data/winemag_country.csv" beforeDir="false" afterPath="$PROJECT_DIR$/wineweb_hannah copy/data/winemag_country.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +61,8 @@
       <workItem from="1606161755312" duration="633000" />
       <workItem from="1606504539022" duration="16246000" />
       <workItem from="1606691409810" duration="3000" />
+      <workItem from="1606696678820" duration="533000" />
+      <workItem from="1607189053540" duration="9825000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted old copies">
       <created>1606104118904</created>
@@ -88,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606690020432</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add new js files">
+      <created>1606696721687</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606696721687</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,24 +130,30 @@
     <MESSAGE value="Readme" />
     <MESSAGE value="Attempt #1 to put in webpage" />
     <MESSAGE value="Added variety dashboard to webpage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added variety dashboard to webpage" />
+    <MESSAGE value="Add new js files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new js files" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="482" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606691101610">
+    <state x="482" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606696724603">
       <screen x="0" y="25" width="1440" height="811" />
     </state>
     <state x="2082" y="180" key="Vcs.Push.Dialog.v2/0.23.1440.819/1440.23.1920.1057@1440.23.1920.1057" timestamp="1606104558765" />
-    <state x="482" y="145" key="Vcs.Push.Dialog.v2/0.25.1440.811/1440.25.1920.1055@0.25.1440.811" timestamp="1606691101610" />
+    <state x="482" y="145" key="Vcs.Push.Dialog.v2/0.25.1440.811/1440.25.1920.1055@0.25.1440.811" timestamp="1606696724603" />
     <state x="482" y="145" key="Vcs.Push.Dialog.v2/0.25.1440.811@0.25.1440.811" timestamp="1606513259306" />
-    <state x="641" y="284" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606690988517">
-      <screen x="0" y="25" width="1440" height="811" />
+    <state x="2295" y="362" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607189061283">
+      <screen x="1440" y="25" width="1920" height="1055" />
     </state>
     <state x="2295" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.819/1440.23.1920.1057@1440.23.1920.1057" timestamp="1606104886569" />
-    <state x="641" y="284" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.811/1440.25.1920.1055@0.25.1440.811" timestamp="1606690988517" />
+    <state x="641" y="284" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.811/1440.25.1920.1055@0.25.1440.811" timestamp="1606696696092" />
+    <state x="2295" y="362" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.811/1440.25.1920.1055@1440.25.1920.1055" timestamp="1607189061283" />
     <state x="641" y="284" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.811@0.25.1440.811" timestamp="1606513251930" />
     <state x="383" y="212" key="run.anything.popup" timestamp="1606689263036">
       <screen x="0" y="25" width="1440" height="811" />
     </state>
     <state x="383" y="212" key="run.anything.popup/0.25.1440.811/1440.25.1920.1055@0.25.1440.811" timestamp="1606689263036" />
+    <state x="2210" y="245" width="670" height="676" key="search.everywhere.popup" timestamp="1607201829334">
+      <screen x="1440" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2210" y="245" width="670" height="676" key="search.everywhere.popup/0.25.1440.811/1440.25.1920.1055@1440.25.1920.1055" timestamp="1607201829334" />
   </component>
 </project>

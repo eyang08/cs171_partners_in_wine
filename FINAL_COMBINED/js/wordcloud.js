@@ -31,7 +31,7 @@ class WordCloud {
         vis.svg.append('g')
             .attr('class', 'title bar-title')
             .append('text')
-            .text("Wine Descriptors")
+            .text("Flavor Profile")
             .attr('transform', `translate(${vis.width / 2}, -20)`)
             .attr('text-anchor', 'middle');
 
@@ -64,9 +64,7 @@ class WordCloud {
         //
         // )
         vis.displayData = vis.wordData
-        console.log(selectedVariety)
         vis.displayData = vis.displayData.filter(function (d) {return d.variety == selectedVariety})
-        console.log(vis.displayData)
 
         vis.size
             .domain(d3.extent(vis.displayData, d => d.count))

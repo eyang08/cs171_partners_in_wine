@@ -11,7 +11,8 @@
 }
 
 #section5 {
-  background-color: #f5f1e4 !important;
+  /*background-color: #f5f1e4 !important;*/
+  background-color: lightgray !important;
   color: black !important;
   padding-top: 100px;
 }
@@ -29,6 +30,10 @@
   height: 800px ;
   /*margin: 20px; */
   /*padding: 10px;*/
+}
+
+.map-title, .brush-title {
+  fill: lightgray;
 }
 
 #brushDiv {
@@ -122,49 +127,6 @@ p {
   width: 100% ;
   padding: 20px ;
 }
-
-/*#bubbleDiv::before {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  z-index: 1;*/
-/*  top: 0;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  left: 0;*/
-/*  opacity: 0.15;*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  background-image: url("../img/grape_leaves.jpg");*/
-/*  background-repeat: no-repeat;*/
-/*  background-size: cover;*/
-/*  !*background-color: rgba(255, 255, 255, 0.6);*!*/
-/*}*/
-
-
-/*.toolTip {*/
-/*  position: absolute;*/
-/*  text-align: left;*/
-/*  !*width: 260px;*!*/
-/*  !*height: 100px;*!*/
-/*  padding: 2px;*/
-/*  font: 10px sans-serif;*/
-/*  background: rgba(114,47,55,0.5);*/
-/*  border-radius: 8px;*/
-/*}*/
-
-/*#toolTip {*/
-/*  border: thin solid grey;*/
-/*  border-radius: 5px;*/
-/*  background: lightgrey;*/
-/*  padding: 10px;*/
-/*}*/
-
-/*p {*/
-/*  font-size: 12px;*/
-/*  line-height: 1.6;*/
-/*  margin: 0px;*/
-/*  padding: 0px;*/
-/*}*/
 
 
 .tier-labels {
@@ -465,47 +427,63 @@ Vertical navigation
 
   .cd-vertical-nav li:first-of-type a::after {
     /* change icon using image sprites */
-    background-position: 0px -64px;
+    background-position: 0px -96px;
     /* fix bug with transitions - set scale(0.01) rather than scale(0) */
-    -webkit-transform: translateX(-50%) translateY(3em) scale(0.01);
-    -moz-transform: translateX(-50%) translateY(3em) scale(0.01);
-    -ms-transform: translateX(-50%) translateY(3em) scale(0.01);
-    -o-transform: translateX(-50%) translateY(3em) scale(0.01);
-    transform: translateX(-50%) translateY(3em) scale(0.01);
+    -webkit-transform: translateX(-50%) translateY(7.5em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(7.5em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(7.5em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(7.5em) scale(0.01);
+    transform: translateX(-50%) translateY(7.5em) scale(0.01);
   }
   .cd-vertical-nav li:first-of-type a::before {
-    -webkit-transform: translateX(-50%) translateY(3em) scale(0.25);
-    -moz-transform: translateX(-50%) translateY(3em) scale(0.25);
-    -ms-transform: translateX(-50%) translateY(3em) scale(0.25);
-    -o-transform: translateX(-50%) translateY(3em) scale(0.25);
-    transform: translateX(-50%) translateY(3em) scale(0.25);
+    -webkit-transform: translateX(-50%) translateY(7.5em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(7.5em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(7.5em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(7.5em) scale(0.25);
+    transform: translateX(-50%) translateY(7.5em) scale(0.25);
   }
 
   .cd-vertical-nav li:nth-of-type(2) a::after {
-    background-position: 0px -48px;
-    -webkit-transform: translateX(-50%) translateY(1.5em) scale(0.01);
-    -moz-transform: translateX(-50%) translateY(1.5em) scale(0.01);
-    -ms-transform: translateX(-50%) translateY(1.5em) scale(0.01);
-    -o-transform: translateX(-50%) translateY(1.5em) scale(0.01);
-    transform: translateX(-50%) translateY(1.5em) scale(0.01);
+    background-position: 0px -80px;
+    -webkit-transform: translateX(-50%) translateY(5em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(5em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(5em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(5em) scale(0.01);
+    transform: translateX(-50%) translateY(5em) scale(0.01);
   }
   .cd-vertical-nav li:nth-of-type(2) a::before {
-    -webkit-transform: translateX(-50%) translateY(1.5em) scale(0.25);
-    -moz-transform: translateX(-50%) translateY(1.5em) scale(0.25);
-    -ms-transform: translateX(-50%) translateY(1.5em) scale(0.25);
-    -o-transform: translateX(-50%) translateY(1.5em) scale(0.25);
-    transform: translateX(-50%) translateY(1.5em) scale(0.25);
+    -webkit-transform: translateX(-50%) translateY(5em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(5em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(5em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(5em) scale(0.25);
+    transform: translateX(-50%) translateY(5em) scale(0.25);
   }
 
   .cd-vertical-nav li:nth-of-type(3) a::after {
-    background-position: 0px -32px;
+    background-position: 0px -64px;
+    -webkit-transform: translateX(-50%) translateY(2.5em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(2.5em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(2.5em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(2.5em) scale(0.01);
+    transform: translateX(-50%) translateY(2.5em) scale(0.01);
+  }
+  .cd-vertical-nav li:nth-of-type(3) a::before {
+    -webkit-transform: translateX(-50%) translateY(2.5em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(2.5em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(2.5em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(2.5em) scale(0.25);
+    transform: translateX(-50%) translateY(2.5em) scale(0.25);
+  }
+
+  .cd-vertical-nav li:nth-of-type(4) a::after {
+    background-position: 0px -48px;
     -webkit-transform: translateX(-50%) translateY(0em) scale(0.01);
     -moz-transform: translateX(-50%) translateY(0em) scale(0.01);
     -ms-transform: translateX(-50%) translateY(0em) scale(0.01);
     -o-transform: translateX(-50%) translateY(0em) scale(0.01);
     transform: translateX(-50%) translateY(0em) scale(0.01);
   }
-  .cd-vertical-nav li:nth-of-type(3) a::before {
+  .cd-vertical-nav li:nth-of-type(4) a::before {
     -webkit-transform: translateX(-50%) translateY(0em) scale(0.25);
     -moz-transform: translateX(-50%) translateY(0em) scale(0.25);
     -ms-transform: translateX(-50%) translateY(0em) scale(0.25);
@@ -513,36 +491,52 @@ Vertical navigation
     transform: translateX(-50%) translateY(0em) scale(0.25);
   }
 
-  .cd-vertical-nav li:nth-of-type(4) a::after {
-    background-position: 0px -16px;
-    -webkit-transform: translateX(-50%) translateY(-1.5em) scale(0.01);
-    -moz-transform: translateX(-50%) translateY(-1.5em) scale(0.01);
-    -ms-transform: translateX(-50%) translateY(-1.5em) scale(0.01);
-    -o-transform: translateX(-50%) translateY(-1.5em) scale(0.01);
-    transform: translateX(-50%) translateY(-1.5em) scale(0.01);
-  }
-  .cd-vertical-nav li:nth-of-type(4) a::before {
-    -webkit-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
-    -moz-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
-    -ms-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
-    -o-transform: translateX(-50%) translateY(-1.5em) scale(0.25);
-    transform: translateX(-50%) translateY(-1.5em) scale(0.25);
-  }
-
   .cd-vertical-nav li:nth-of-type(5) a::after {
-    background-position: 0px 0px;
-    -webkit-transform: translateX(-50%) translateY(-3em) scale(0.01);
-    -moz-transform: translateX(-50%) translateY(-3em) scale(0.01);
-    -ms-transform: translateX(-50%) translateY(-3em) scale(0.01);
-    -o-transform: translateX(-50%) translateY(-3em) scale(0.01);
-    transform: translateX(-50%) translateY(-3em) scale(0.01);
+    background-position: 0px -32px;
+    -webkit-transform: translateX(-50%) translateY(-2.5em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(-2.5em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(-2.5em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(-2.5em) scale(0.01);
+    transform: translateX(-50%) translateY(-2.5em) scale(0.01);
   }
   .cd-vertical-nav li:nth-of-type(5) a::before {
-    -webkit-transform: translateX(-50%) translateY(-3em) scale(0.25);
-    -moz-transform: translateX(-50%) translateY(-3em) scale(0.25);
-    -ms-transform: translateX(-50%) translateY(-3em) scale(0.25);
-    -o-transform: translateX(-50%) translateY(-3em) scale(0.25);
-    transform: translateX(-50%) translateY(-3em) scale(0.25);
+    -webkit-transform: translateX(-50%) translateY(-2.5em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(-2.5em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(-2.5em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(-2.5em) scale(0.25);
+    transform: translateX(-50%) translateY(-2.5em) scale(0.25);
+  }
+
+  .cd-vertical-nav li:nth-of-type(6) a::after {
+    background-position: 0px -16px;
+    -webkit-transform: translateX(-50%) translateY(-5em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(-5em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(-5em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(-5em) scale(0.01);
+    transform: translateX(-50%) translateY(-5em) scale(0.01);
+  }
+  .cd-vertical-nav li:nth-of-type(6) a::before {
+    -webkit-transform: translateX(-50%) translateY(-5em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(-5em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(-5em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(-5em) scale(0.25);
+    transform: translateX(-50%) translateY(-5em) scale(0.25);
+  }
+
+  .cd-vertical-nav li:nth-of-type(7) a::after {
+    background-position: 0px 0px;
+    -webkit-transform: translateX(-50%) translateY(-7.5em) scale(0.01);
+    -moz-transform: translateX(-50%) translateY(-7.5em) scale(0.01);
+    -ms-transform: translateX(-50%) translateY(-7.5em) scale(0.01);
+    -o-transform: translateX(-50%) translateY(-7.5em) scale(0.01);
+    transform: translateX(-50%) translateY(-7.5em) scale(0.01);
+  }
+  .cd-vertical-nav li:nth-of-type(7) a::before {
+    -webkit-transform: translateX(-50%) translateY(-7.5em) scale(0.25);
+    -moz-transform: translateX(-50%) translateY(-7.5em) scale(0.25);
+    -ms-transform: translateX(-50%) translateY(-7.5em) scale(0.25);
+    -o-transform: translateX(-50%) translateY(-7.5em) scale(0.25);
+    transform: translateX(-50%) translateY(-7.5em) scale(0.25);
   }
 
   .cd-vertical-nav .label {

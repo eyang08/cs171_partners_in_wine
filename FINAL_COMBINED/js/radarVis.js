@@ -222,7 +222,8 @@ updateVis () {
     vis.keylabels.enter()
         .append("g")
         .append("text")
-        .attr("class", "legendtext")
+        .attr("class", "legend-text")
+        .style("color", "white")
         .text(d =>{
             return d
         }
